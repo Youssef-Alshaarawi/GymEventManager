@@ -2,6 +2,17 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Fonts/sf-ui-display-ultralight.otf</string>
+		<string>Fonts/sf-ui-display-thin.otf</string>
+		<string>Fonts/sf-ui-display-semibold.otf</string>
+		<string>Fonts/sf-ui-display-medium.otf</string>
+		<string>Fonts/sf-ui-display-heavy.otf</string>
+		<string>Fonts/sf-ui-display-light.otf</string>
+		<string>Fonts/sf-ui-display-bold.otf</string>
+		<string>Fonts/sf-ui-display-black.otf</string>
+	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -16,10 +27,12 @@
 					<key>UISceneDelegateClassName</key>
 					<string>$(PRODUCT_MODULE_NAME).SceneDelegate</string>
 					<key>UISceneStoryboardFile</key>
-					<string>Main</string>
+					<string>HomeView</string>
 				</dict>
 			</array>
 		</dict>
 	</dict>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>
 </dict>
 </plist>

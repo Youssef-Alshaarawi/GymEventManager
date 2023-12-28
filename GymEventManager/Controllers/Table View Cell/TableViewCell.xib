@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="sf-ui-display-medium.otf">
+            <string>SFUIDisplay-Medium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TableCell" rowHeight="290" id="KGk-i7-Jjw" customClass="TableViewCell" customModule="GymEventManager" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="336" height="290"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="336" height="290"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jnl-G1-Lyx">
+                        <rect key="frame" x="16" y="0.0" width="50" height="50"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onboarding-image-2" translatesAutoresizingMaskIntoConstraints="NO" id="L5a-Fi-SMx">
+                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="gd8-kp-e5F"/>
+                                    <constraint firstAttribute="height" constant="50" id="wu0-Zf-d1J"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="25"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="L5a-Fi-SMx" secondAttribute="bottom" id="BlP-4L-YE2"/>
+                            <constraint firstItem="L5a-Fi-SMx" firstAttribute="top" secondItem="Jnl-G1-Lyx" secondAttribute="top" id="Lu4-Rj-f8V"/>
+                            <constraint firstItem="L5a-Fi-SMx" firstAttribute="leading" secondItem="Jnl-G1-Lyx" secondAttribute="leading" id="OWM-4B-zMq"/>
+                            <constraint firstAttribute="width" constant="50" id="Xr3-7T-gnr"/>
+                            <constraint firstAttribute="height" constant="50" id="koq-ig-7Bj"/>
+                            <constraint firstAttribute="trailing" secondItem="L5a-Fi-SMx" secondAttribute="trailing" id="u53-4F-3SL"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="25"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h35-3X-U9s">
+                        <rect key="frame" x="76" y="15.666666666666664" width="39" height="19"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <fontDescription key="fontDescription" name="SFUIDisplay-Medium" family="SF UI Display" pointSize="16"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Jnl-G1-Lyx" secondAttribute="bottom" constant="16" id="1DD-NG-Eb5"/>
+                    <constraint firstItem="h35-3X-U9s" firstAttribute="centerY" secondItem="L5a-Fi-SMx" secondAttribute="centerY" id="EkQ-GS-V5b"/>
+                    <constraint firstItem="h35-3X-U9s" firstAttribute="leading" secondItem="Jnl-G1-Lyx" secondAttribute="trailing" constant="10" id="VqJ-5p-RzP"/>
+                    <constraint firstItem="Jnl-G1-Lyx" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="b0G-hw-5mn"/>
+                    <constraint firstItem="Jnl-G1-Lyx" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="dzN-a6-wX5"/>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="h35-3X-U9s" secondAttribute="trailing" constant="10" id="wAk-nk-Giz"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="imageView" destination="L5a-Fi-SMx" id="Hsa-Jt-w9Z"/>
+                <outlet property="label" destination="h35-3X-U9s" id="zgJ-j2-ruK"/>
+                <outlet property="teamImage" destination="L5a-Fi-SMx" id="neL-tO-f4v"/>
+            </connections>
+            <point key="canvasLocation" x="88.549618320610676" y="73.943661971830991"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="onboarding-image-2" width="375" height="406"/>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

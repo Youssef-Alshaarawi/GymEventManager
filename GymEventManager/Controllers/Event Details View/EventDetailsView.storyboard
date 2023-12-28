@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Event Details View Controller-->
+        <scene sceneID="d6O-Tx-CG8">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iC7-sX-WS6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewController storyboardIdentifier="EventDetailsView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Mx1-j8-lQx" customClass="EventDetailsViewController" customModule="GymEventManager" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="j9v-2S-qwz">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView autoresizesSubviews="NO" clipsSubviews="YES" contentMode="scaleAspectFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="66" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="X7o-3q-S9I">
+                                <rect key="frame" x="0.0" y="120" width="393" height="698"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="HeaderCell" id="VpH-2g-BbR">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="48"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VpH-2g-BbR" id="oGm-9y-DZ9">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="48"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleAspectFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TableCell" id="WeS-oS-rNg">
+                                        <rect key="frame" x="0.0" y="98" width="393" height="48"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="WeS-oS-rNg" id="LEU-k8-Idt">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="48"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <sections/>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pFr-Fe-ilN">
+                                <rect key="frame" x="10" y="75" width="88" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="88" id="7ad-6m-Lp9"/>
+                                    <constraint firstAttribute="height" constant="29" id="ob9-LT-sGJ"/>
+                                </constraints>
+                                <buttonConfiguration key="configuration" style="plain" image="chevron.backward" catalog="system" title="  ">
+                                    <fontDescription key="titleFontDescription" name="SFUIDisplay-Bold" family="SF UI Display" pointSize="24"/>
+                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="backPressed:" destination="Mx1-j8-lQx" eventType="touchUpInside" id="VLh-aS-OC3"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="yuz-kc-xQE"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="pFr-Fe-ilN" firstAttribute="top" secondItem="yuz-kc-xQE" secondAttribute="top" constant="16" id="2dO-Kt-MIA"/>
+                            <constraint firstItem="X7o-3q-S9I" firstAttribute="bottom" secondItem="yuz-kc-xQE" secondAttribute="bottom" id="4nt-b8-mcU"/>
+                            <constraint firstItem="pFr-Fe-ilN" firstAttribute="leading" secondItem="yuz-kc-xQE" secondAttribute="leading" constant="10" id="Pl8-ee-bkO"/>
+                            <constraint firstItem="X7o-3q-S9I" firstAttribute="top" secondItem="pFr-Fe-ilN" secondAttribute="bottom" constant="16" id="YU8-oK-Uf1"/>
+                            <constraint firstItem="X7o-3q-S9I" firstAttribute="leading" secondItem="yuz-kc-xQE" secondAttribute="leading" id="ddk-rh-U8c"/>
+                            <constraint firstItem="X7o-3q-S9I" firstAttribute="trailing" secondItem="yuz-kc-xQE" secondAttribute="trailing" id="g5c-u1-Yo7"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="3iD-To-R0Q"/>
+                    <connections>
+                        <outlet property="eventNameLabel" destination="pFr-Fe-ilN" id="Nlj-PO-ogh"/>
+                        <outlet property="navigationItem" destination="3iD-To-R0Q" id="53D-hB-pqg"/>
+                        <outlet property="tableView" destination="X7o-3q-S9I" id="OZZ-VU-d08"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="1142" y="615"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="chevron.backward" catalog="system" width="97" height="128"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

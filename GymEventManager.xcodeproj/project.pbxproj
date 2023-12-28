@@ -7,34 +7,68 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BB19D3D52B3078A600C6C90E /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB19D3D42B3078A600C6C90E /* SignUpViewController.swift */; };
+		BB19D3D72B31A9DA00C6C90E /* Validators.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB19D3D62B31A9DA00C6C90E /* Validators.swift */; };
+		BB20FE802B330A9E00AB2D84 /* Fonts in Resources */ = {isa = PBXBuildFile; fileRef = BB924C582B2F18A7003BB1DE /* Fonts */; };
+		BB20FE822B3311FF00AB2D84 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB20FE812B3311FF00AB2D84 /* Event.swift */; };
+		BB20FE842B33179500AB2D84 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB20FE832B33179500AB2D84 /* User.swift */; };
+		BB20FE882B34156000AB2D84 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB20FE872B34156000AB2D84 /* HomeViewController.swift */; };
+		BB43B11A2B385A890016872D /* GetEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB43B1192B385A890016872D /* GetEvents.swift */; };
+		BB43B1202B399EDD0016872D /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB43B11F2B399EDD0016872D /* UIView+Extension.swift */; };
+		BB8756AB2B3B0ECB0082BB6D /* HeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB8756A92B3B0ECB0082BB6D /* HeaderCell.swift */; };
+		BB8756AC2B3B0ECB0082BB6D /* HeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB8756AA2B3B0ECB0082BB6D /* HeaderCell.xib */; };
 		BB924C182B2EFCFB003BB1DE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB924C172B2EFCFB003BB1DE /* AppDelegate.swift */; };
 		BB924C1A2B2EFCFB003BB1DE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB924C192B2EFCFB003BB1DE /* SceneDelegate.swift */; };
-		BB924C1C2B2EFCFB003BB1DE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB924C1B2B2EFCFB003BB1DE /* ViewController.swift */; };
-		BB924C1F2B2EFCFB003BB1DE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB924C1D2B2EFCFB003BB1DE /* Main.storyboard */; };
+		BB924C1C2B2EFCFB003BB1DE /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB924C1B2B2EFCFB003BB1DE /* OnboardingViewController.swift */; };
 		BB924C212B2EFCFE003BB1DE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB924C202B2EFCFE003BB1DE /* Assets.xcassets */; };
 		BB924C242B2EFCFE003BB1DE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB924C222B2EFCFE003BB1DE /* LaunchScreen.storyboard */; };
+		BB94068F2B3C2A8F00525A5A /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = BB94068E2B3C2A8F00525A5A /* .swiftlint.yml */; };
+		BB9406912B3C5A6A00525A5A /* LogInView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB9406902B3C5A6A00525A5A /* LogInView.storyboard */; };
+		BB9406942B3C5DE800525A5A /* SignUpView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB9406932B3C5DE800525A5A /* SignUpView.storyboard */; };
+		BB9406972B3C5EC600525A5A /* HomeView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB9406962B3C5EC600525A5A /* HomeView.storyboard */; };
+		BB94069A2B3D7AC400525A5A /* EventDetailsView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB9406992B3D7AC400525A5A /* EventDetailsView.storyboard */; };
+		BB9406A12B3D83A300525A5A /* test.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB9406A22B3D83A300525A5A /* test.storyboard */; };
+		BBD93B102B303F9B003BB447 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD93B0F2B303F9B003BB447 /* LoginViewController.swift */; };
+		BBFD2BB92B34376D00FFA17D /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBFD2BB72B34376C00FFA17D /* CollectionViewCell.swift */; };
+		BBFD2BBA2B34376D00FFA17D /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBFD2BB82B34376C00FFA17D /* CollectionViewCell.xib */; };
+		BBFD2BBC2B34532700FFA17D /* EventDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBFD2BBB2B34532700FFA17D /* EventDetailsViewController.swift */; };
+		BBFD2BBE2B34772200FFA17D /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBFD2BBD2B34772200FFA17D /* Team.swift */; };
+		BBFD2BC12B3478A600FFA17D /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBFD2BBF2B3478A600FFA17D /* TableViewCell.swift */; };
+		BBFD2BC22B3478A600FFA17D /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBFD2BC02B3478A600FFA17D /* TableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BB19D3D42B3078A600C6C90E /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		BB19D3D62B31A9DA00C6C90E /* Validators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validators.swift; sourceTree = "<group>"; };
+		BB20FE812B3311FF00AB2D84 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		BB20FE832B33179500AB2D84 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		BB20FE872B34156000AB2D84 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		BB43B1192B385A890016872D /* GetEvents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetEvents.swift; sourceTree = "<group>"; };
+		BB43B11F2B399EDD0016872D /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		BB8756A92B3B0ECB0082BB6D /* HeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCell.swift; sourceTree = "<group>"; };
+		BB8756AA2B3B0ECB0082BB6D /* HeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderCell.xib; sourceTree = "<group>"; };
 		BB924C142B2EFCFB003BB1DE /* GymEventManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GymEventManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB924C172B2EFCFB003BB1DE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BB924C192B2EFCFB003BB1DE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		BB924C1B2B2EFCFB003BB1DE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		BB924C1E2B2EFCFB003BB1DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BB924C1B2B2EFCFB003BB1DE /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		BB924C202B2EFCFE003BB1DE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BB924C232B2EFCFE003BB1DE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BB924C252B2EFCFE003BB1DE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BB924C582B2F18A7003BB1DE /* Fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Fonts; sourceTree = "<group>"; };
+		BB94068E2B3C2A8F00525A5A /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		BB9406902B3C5A6A00525A5A /* LogInView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LogInView.storyboard; sourceTree = "<group>"; };
+		BB9406932B3C5DE800525A5A /* SignUpView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUpView.storyboard; sourceTree = "<group>"; };
+		BB9406962B3C5EC600525A5A /* HomeView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeView.storyboard; sourceTree = "<group>"; };
+		BB9406992B3D7AC400525A5A /* EventDetailsView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EventDetailsView.storyboard; sourceTree = "<group>"; };
+		BB9406A22B3D83A300525A5A /* test.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = test.storyboard; sourceTree = "<group>"; };
+		BBD93B0F2B303F9B003BB447 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		BBFD2BB72B34376C00FFA17D /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		BBFD2BB82B34376C00FFA17D /* CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
+		BBFD2BBB2B34532700FFA17D /* EventDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailsViewController.swift; sourceTree = "<group>"; };
+		BBFD2BBD2B34772200FFA17D /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
+		BBFD2BBF2B3478A600FFA17D /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		BBFD2BC02B3478A600FFA17D /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFrameworksBuildPhase section */
-		BB924C112B2EFCFB003BB1DE /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		BB924C0B2B2EFCFA003BB1DE = {
@@ -58,13 +92,123 @@
 			children = (
 				BB924C172B2EFCFB003BB1DE /* AppDelegate.swift */,
 				BB924C192B2EFCFB003BB1DE /* SceneDelegate.swift */,
-				BB924C1B2B2EFCFB003BB1DE /* ViewController.swift */,
-				BB924C1D2B2EFCFB003BB1DE /* Main.storyboard */,
+				BB924C332B2F0475003BB1DE /* Models */,
+				BB924C312B2F0463003BB1DE /* Views */,
+				BB924C322B2F046B003BB1DE /* Controllers */,
 				BB924C202B2EFCFE003BB1DE /* Assets.xcassets */,
-				BB924C222B2EFCFE003BB1DE /* LaunchScreen.storyboard */,
 				BB924C252B2EFCFE003BB1DE /* Info.plist */,
+				BB924C582B2F18A7003BB1DE /* Fonts */,
+				BB43B11F2B399EDD0016872D /* UIView+Extension.swift */,
+				BB94068E2B3C2A8F00525A5A /* .swiftlint.yml */,
 			);
 			path = GymEventManager;
+			sourceTree = "<group>";
+		};
+		BB924C312B2F0463003BB1DE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BB924C222B2EFCFE003BB1DE /* LaunchScreen.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		BB924C322B2F046B003BB1DE /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				BB94069F2B3D7CC700525A5A /* Onboarding View */,
+				BB9406922B3C5DA500525A5A /* LoginView */,
+				BB9406952B3C5E9800525A5A /* SignUpView */,
+				BB9406982B3D771400525A5A /* Home View */,
+				BB94069C2B3D7C7E00525A5A /* Collection View Cell */,
+				BB94069B2B3D7C6500525A5A /* Event Details View */,
+				BB94069E2B3D7CA300525A5A /* Table View Cell */,
+				BB94069D2B3D7C9000525A5A /* Header Cell View */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		BB924C332B2F0475003BB1DE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				BB19D3D62B31A9DA00C6C90E /* Validators.swift */,
+				BB20FE812B3311FF00AB2D84 /* Event.swift */,
+				BB43B1192B385A890016872D /* GetEvents.swift */,
+				BB20FE832B33179500AB2D84 /* User.swift */,
+				BBFD2BBD2B34772200FFA17D /* Team.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		BB9406922B3C5DA500525A5A /* LoginView */ = {
+			isa = PBXGroup;
+			children = (
+				BBD93B0F2B303F9B003BB447 /* LoginViewController.swift */,
+				BB9406902B3C5A6A00525A5A /* LogInView.storyboard */,
+			);
+			path = LoginView;
+			sourceTree = "<group>";
+		};
+		BB9406952B3C5E9800525A5A /* SignUpView */ = {
+			isa = PBXGroup;
+			children = (
+				BB19D3D42B3078A600C6C90E /* SignUpViewController.swift */,
+				BB9406932B3C5DE800525A5A /* SignUpView.storyboard */,
+			);
+			path = SignUpView;
+			sourceTree = "<group>";
+		};
+		BB9406982B3D771400525A5A /* Home View */ = {
+			isa = PBXGroup;
+			children = (
+				BB20FE872B34156000AB2D84 /* HomeViewController.swift */,
+				BB9406962B3C5EC600525A5A /* HomeView.storyboard */,
+			);
+			path = "Home View";
+			sourceTree = "<group>";
+		};
+		BB94069B2B3D7C6500525A5A /* Event Details View */ = {
+			isa = PBXGroup;
+			children = (
+				BBFD2BBB2B34532700FFA17D /* EventDetailsViewController.swift */,
+				BB9406992B3D7AC400525A5A /* EventDetailsView.storyboard */,
+			);
+			path = "Event Details View";
+			sourceTree = "<group>";
+		};
+		BB94069C2B3D7C7E00525A5A /* Collection View Cell */ = {
+			isa = PBXGroup;
+			children = (
+				BBFD2BB72B34376C00FFA17D /* CollectionViewCell.swift */,
+				BBFD2BB82B34376C00FFA17D /* CollectionViewCell.xib */,
+			);
+			path = "Collection View Cell";
+			sourceTree = "<group>";
+		};
+		BB94069D2B3D7C9000525A5A /* Header Cell View */ = {
+			isa = PBXGroup;
+			children = (
+				BB8756A92B3B0ECB0082BB6D /* HeaderCell.swift */,
+				BB8756AA2B3B0ECB0082BB6D /* HeaderCell.xib */,
+			);
+			path = "Header Cell View";
+			sourceTree = "<group>";
+		};
+		BB94069E2B3D7CA300525A5A /* Table View Cell */ = {
+			isa = PBXGroup;
+			children = (
+				BBFD2BBF2B3478A600FFA17D /* TableViewCell.swift */,
+				BBFD2BC02B3478A600FFA17D /* TableViewCell.xib */,
+			);
+			path = "Table View Cell";
+			sourceTree = "<group>";
+		};
+		BB94069F2B3D7CC700525A5A /* Onboarding View */ = {
+			isa = PBXGroup;
+			children = (
+				BB924C1B2B2EFCFB003BB1DE /* OnboardingViewController.swift */,
+				BB9406A22B3D83A300525A5A /* test.storyboard */,
+			);
+			path = "Onboarding View";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -75,14 +219,16 @@
 			buildConfigurationList = BB924C282B2EFCFE003BB1DE /* Build configuration list for PBXNativeTarget "GymEventManager" */;
 			buildPhases = (
 				BB924C102B2EFCFB003BB1DE /* Sources */,
-				BB924C112B2EFCFB003BB1DE /* Frameworks */,
 				BB924C122B2EFCFB003BB1DE /* Resources */,
+				BB19D3D32B306AC300C6C90E /* ShellScript */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = GymEventManager;
+			packageProductDependencies = (
+			);
 			productName = GymEventManager;
 			productReference = BB924C142B2EFCFB003BB1DE /* GymEventManager.app */;
 			productType = "com.apple.product-type.application";
@@ -94,6 +240,9 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
+				KnownAssetTags = (
+					.swiftlint.yml,
+				);
 				LastSwiftUpdateCheck = 1510;
 				LastUpgradeCheck = 1510;
 				TargetAttributes = {
@@ -111,6 +260,8 @@
 				Base,
 			);
 			mainGroup = BB924C0B2B2EFCFA003BB1DE;
+			packageReferences = (
+			);
 			productRefGroup = BB924C152B2EFCFB003BB1DE /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -125,36 +276,72 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB9406A12B3D83A300525A5A /* test.storyboard in Resources */,
+				BB94068F2B3C2A8F00525A5A /* .swiftlint.yml in Resources */,
+				BB9406912B3C5A6A00525A5A /* LogInView.storyboard in Resources */,
+				BB20FE802B330A9E00AB2D84 /* Fonts in Resources */,
+				BBFD2BC22B3478A600FFA17D /* TableViewCell.xib in Resources */,
+				BB8756AC2B3B0ECB0082BB6D /* HeaderCell.xib in Resources */,
+				BBFD2BBA2B34376D00FFA17D /* CollectionViewCell.xib in Resources */,
 				BB924C242B2EFCFE003BB1DE /* LaunchScreen.storyboard in Resources */,
+				BB9406972B3C5EC600525A5A /* HomeView.storyboard in Resources */,
+				BB9406942B3C5DE800525A5A /* SignUpView.storyboard in Resources */,
+				BB94069A2B3D7AC400525A5A /* EventDetailsView.storyboard in Resources */,
 				BB924C212B2EFCFE003BB1DE /* Assets.xcassets in Resources */,
-				BB924C1F2B2EFCFB003BB1DE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		BB19D3D32B306AC300C6C90E /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [[ \"$(uname -m)\" == arm64 ]]; then\n    export PATH=\"/opt/homebrew/bin:$PATH\"\nfi\n\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		BB924C102B2EFCFB003BB1DE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BB924C1C2B2EFCFB003BB1DE /* ViewController.swift in Sources */,
+				BBFD2BBC2B34532700FFA17D /* EventDetailsViewController.swift in Sources */,
+				BB43B1202B399EDD0016872D /* UIView+Extension.swift in Sources */,
+				BBFD2BBE2B34772200FFA17D /* Team.swift in Sources */,
+				BB20FE822B3311FF00AB2D84 /* Event.swift in Sources */,
+				BB8756AB2B3B0ECB0082BB6D /* HeaderCell.swift in Sources */,
+				BBD93B102B303F9B003BB447 /* LoginViewController.swift in Sources */,
+				BBFD2BC12B3478A600FFA17D /* TableViewCell.swift in Sources */,
+				BB924C1C2B2EFCFB003BB1DE /* OnboardingViewController.swift in Sources */,
+				BB19D3D72B31A9DA00C6C90E /* Validators.swift in Sources */,
+				BB20FE882B34156000AB2D84 /* HomeViewController.swift in Sources */,
 				BB924C182B2EFCFB003BB1DE /* AppDelegate.swift in Sources */,
 				BB924C1A2B2EFCFB003BB1DE /* SceneDelegate.swift in Sources */,
+				BB20FE842B33179500AB2D84 /* User.swift in Sources */,
+				BB43B11A2B385A890016872D /* GetEvents.swift in Sources */,
+				BB19D3D52B3078A600C6C90E /* SignUpViewController.swift in Sources */,
+				BBFD2BB92B34376D00FFA17D /* CollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		BB924C1D2B2EFCFB003BB1DE /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				BB924C1E2B2EFCFB003BB1DE /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		BB924C222B2EFCFE003BB1DE /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -203,7 +390,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -218,7 +405,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				INFOPLIST_KEY_UIMainStoryboardFile = HomeView;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -266,7 +454,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -275,7 +463,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				INFOPLIST_KEY_UIMainStoryboardFile = HomeView;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -297,9 +486,13 @@
 				INFOPLIST_FILE = GymEventManager/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = HomeView;
+				INFOPLIST_KEY_UIStatusBarHidden = NO;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleDarkContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -307,9 +500,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.yousssef.GymEventManager;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -325,9 +521,13 @@
 				INFOPLIST_FILE = GymEventManager/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = HomeView;
+				INFOPLIST_KEY_UIStatusBarHidden = NO;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleDarkContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -335,9 +535,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.yousssef.GymEventManager;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
