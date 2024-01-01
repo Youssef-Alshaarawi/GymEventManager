@@ -1,4 +1,8 @@
 # rule identifiers turned on by default to exclude from running
 disabled_rules:
    - line_length
-   - force_cast
+   - trailing_whitespace
+excluded:
+  - Pods
+included:
+  - GymEventManager

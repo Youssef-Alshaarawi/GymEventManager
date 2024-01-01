@@ -17,8 +17,6 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var nameTextField: UITextField!
     var currentTextField: UITextField?
     override func viewDidLoad() {
-        navigationController?.interactivePopGestureRecognizer?.delegate = nil
-        navigationController?.isNavigationBarHidden = true
         emailTextField.delegate = self
         passwordTextField.delegate = self
         nameTextField.delegate = self
@@ -83,9 +81,13 @@ class SignUpViewController: UIViewController {
                 sender.showLoading()
                 let accessToken = "dummyToken"
                 User.shared.accessToken = accessToken
+                User.shared.email = email
+                User.shared.name = name
                 DispatchQueue.main.async {
                     let homeView = UIStoryboard.init(name: "HomeView", bundle: Bundle.main).instantiateViewController(withIdentifier: "HomeView") as? HomeViewController
-                    self.navigationController?.setViewControllers([homeView!], animated: true)
+                    let navController = UINavigationController(rootViewController: homeView!)
+                    let appDelegate = UIApplication.shared.delegate as? SceneDelegate
+                    appDelegate!.window?.rootViewController = navController
                 }
             }
         } else {
@@ -129,5 +131,20 @@ extension SignUpViewController: UITextFieldDelegate {
         } else {
             confirmPasswordErrorLabel.isHidden = true
         }
+    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        switch textField {
+        case self.emailTextField:
+            self.passwordTextField.becomeFirstResponder()
+        case self.passwordTextField:
+            self.confirmPasswordTextField.becomeFirstResponder()
+        case self.nameTextField:
+            self.emailTextField.becomeFirstResponder()
+        default: do {
+            self.confirmPasswordTextField.resignFirstResponder()
+            self.signUpPressed(LoadingButton())
+        }
+        }
+        return true
     }
 }

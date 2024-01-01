@@ -27,7 +27,15 @@
 		BB9406942B3C5DE800525A5A /* SignUpView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB9406932B3C5DE800525A5A /* SignUpView.storyboard */; };
 		BB9406972B3C5EC600525A5A /* HomeView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB9406962B3C5EC600525A5A /* HomeView.storyboard */; };
 		BB94069A2B3D7AC400525A5A /* EventDetailsView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB9406992B3D7AC400525A5A /* EventDetailsView.storyboard */; };
-		BB9406A12B3D83A300525A5A /* test.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB9406A22B3D83A300525A5A /* test.storyboard */; };
+		BB9406A12B3D83A300525A5A /* OnboardingView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB9406A22B3D83A300525A5A /* OnboardingView.storyboard */; };
+		BB9406A72B3D9D9300525A5A /* ProfileView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB9406A62B3D9D9300525A5A /* ProfileView.storyboard */; };
+		BB9406AB2B3D9DE700525A5A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9406AA2B3D9DE700525A5A /* ProfileViewController.swift */; };
+		BB9406AE2B3DA93100525A5A /* AccountInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9406AD2B3DA93000525A5A /* AccountInfoViewController.swift */; };
+		BB9406B02B3DA95900525A5A /* AccountInfoView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB9406AF2B3DA95900525A5A /* AccountInfoView.storyboard */; };
+		BB9406B32B416E4B00525A5A /* ChangePasswordView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB9406B22B416E4B00525A5A /* ChangePasswordView.storyboard */; };
+		BB9406B52B416E5F00525A5A /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9406B42B416E5F00525A5A /* ChangePasswordViewController.swift */; };
+		BB9406C12B419DB700525A5A /* LogOutSheetView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB9406C02B419DB700525A5A /* LogOutSheetView.storyboard */; };
+		BB9406C32B419DD600525A5A /* LogOutSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9406C22B419DD600525A5A /* LogOutSheetViewController.swift */; };
 		BBD93B102B303F9B003BB447 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD93B0F2B303F9B003BB447 /* LoginViewController.swift */; };
 		BBFD2BB92B34376D00FFA17D /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBFD2BB72B34376C00FFA17D /* CollectionViewCell.swift */; };
 		BBFD2BBA2B34376D00FFA17D /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBFD2BB82B34376C00FFA17D /* CollectionViewCell.xib */; };
@@ -35,9 +43,13 @@
 		BBFD2BBE2B34772200FFA17D /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBFD2BBD2B34772200FFA17D /* Team.swift */; };
 		BBFD2BC12B3478A600FFA17D /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBFD2BBF2B3478A600FFA17D /* TableViewCell.swift */; };
 		BBFD2BC22B3478A600FFA17D /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBFD2BC02B3478A600FFA17D /* TableViewCell.xib */; };
+		E4D67017D07207498A2617A9 /* Pods_GymEventManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0443829D6823D5CF5866E9E8 /* Pods_GymEventManager.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0443829D6823D5CF5866E9E8 /* Pods_GymEventManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GymEventManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1DA52D66C3A2A7B8615C7E53 /* Pods-GymEventManager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GymEventManager.debug.xcconfig"; path = "Target Support Files/Pods-GymEventManager/Pods-GymEventManager.debug.xcconfig"; sourceTree = "<group>"; };
+		4FF6BB0F1FA9FD42CCB26ECC /* Pods-GymEventManager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GymEventManager.release.xcconfig"; path = "Target Support Files/Pods-GymEventManager/Pods-GymEventManager.release.xcconfig"; sourceTree = "<group>"; };
 		BB19D3D42B3078A600C6C90E /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		BB19D3D62B31A9DA00C6C90E /* Validators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validators.swift; sourceTree = "<group>"; };
 		BB20FE812B3311FF00AB2D84 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
@@ -60,7 +72,15 @@
 		BB9406932B3C5DE800525A5A /* SignUpView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SignUpView.storyboard; sourceTree = "<group>"; };
 		BB9406962B3C5EC600525A5A /* HomeView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeView.storyboard; sourceTree = "<group>"; };
 		BB9406992B3D7AC400525A5A /* EventDetailsView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EventDetailsView.storyboard; sourceTree = "<group>"; };
-		BB9406A22B3D83A300525A5A /* test.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = test.storyboard; sourceTree = "<group>"; };
+		BB9406A22B3D83A300525A5A /* OnboardingView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OnboardingView.storyboard; sourceTree = "<group>"; };
+		BB9406A62B3D9D9300525A5A /* ProfileView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProfileView.storyboard; sourceTree = "<group>"; };
+		BB9406AA2B3D9DE700525A5A /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		BB9406AD2B3DA93000525A5A /* AccountInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfoViewController.swift; sourceTree = "<group>"; };
+		BB9406AF2B3DA95900525A5A /* AccountInfoView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AccountInfoView.storyboard; sourceTree = "<group>"; };
+		BB9406B22B416E4B00525A5A /* ChangePasswordView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ChangePasswordView.storyboard; sourceTree = "<group>"; };
+		BB9406B42B416E5F00525A5A /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
+		BB9406C02B419DB700525A5A /* LogOutSheetView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LogOutSheetView.storyboard; sourceTree = "<group>"; };
+		BB9406C22B419DD600525A5A /* LogOutSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogOutSheetViewController.swift; sourceTree = "<group>"; };
 		BBD93B0F2B303F9B003BB447 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		BBFD2BB72B34376C00FFA17D /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		BBFD2BB82B34376C00FFA17D /* CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
@@ -70,12 +90,35 @@
 		BBFD2BC02B3478A600FFA17D /* TableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFrameworksBuildPhase section */
+		62FAAC93F64FB0CB2EA25763 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E4D67017D07207498A2617A9 /* Pods_GymEventManager.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
 /* Begin PBXGroup section */
+		86C05B7ABF87B79C044CFBC0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1DA52D66C3A2A7B8615C7E53 /* Pods-GymEventManager.debug.xcconfig */,
+				4FF6BB0F1FA9FD42CCB26ECC /* Pods-GymEventManager.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		BB924C0B2B2EFCFA003BB1DE = {
 			isa = PBXGroup;
 			children = (
+				BB94068E2B3C2A8F00525A5A /* .swiftlint.yml */,
 				BB924C162B2EFCFB003BB1DE /* GymEventManager */,
 				BB924C152B2EFCFB003BB1DE /* Products */,
+				86C05B7ABF87B79C044CFBC0 /* Pods */,
+				BBF67F30E15368416196F7A9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,7 +142,6 @@
 				BB924C252B2EFCFE003BB1DE /* Info.plist */,
 				BB924C582B2F18A7003BB1DE /* Fonts */,
 				BB43B11F2B399EDD0016872D /* UIView+Extension.swift */,
-				BB94068E2B3C2A8F00525A5A /* .swiftlint.yml */,
 			);
 			path = GymEventManager;
 			sourceTree = "<group>";
@@ -115,6 +157,10 @@
 		BB924C322B2F046B003BB1DE /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				BB9406BF2B419D9E00525A5A /* Log Out Sheet View */,
+				BB9406B12B416DF000525A5A /* Change Password View */,
+				BB9406AC2B3DA91700525A5A /* Account Info View */,
+				BB9406A32B3D9D2F00525A5A /* Profile View */,
 				BB94069F2B3D7CC700525A5A /* Onboarding View */,
 				BB9406922B3C5DA500525A5A /* LoginView */,
 				BB9406952B3C5E9800525A5A /* SignUpView */,
@@ -206,9 +252,53 @@
 			isa = PBXGroup;
 			children = (
 				BB924C1B2B2EFCFB003BB1DE /* OnboardingViewController.swift */,
-				BB9406A22B3D83A300525A5A /* test.storyboard */,
+				BB9406A22B3D83A300525A5A /* OnboardingView.storyboard */,
 			);
 			path = "Onboarding View";
+			sourceTree = "<group>";
+		};
+		BB9406A32B3D9D2F00525A5A /* Profile View */ = {
+			isa = PBXGroup;
+			children = (
+				BB9406AA2B3D9DE700525A5A /* ProfileViewController.swift */,
+				BB9406A62B3D9D9300525A5A /* ProfileView.storyboard */,
+			);
+			path = "Profile View";
+			sourceTree = "<group>";
+		};
+		BB9406AC2B3DA91700525A5A /* Account Info View */ = {
+			isa = PBXGroup;
+			children = (
+				BB9406AD2B3DA93000525A5A /* AccountInfoViewController.swift */,
+				BB9406AF2B3DA95900525A5A /* AccountInfoView.storyboard */,
+			);
+			path = "Account Info View";
+			sourceTree = "<group>";
+		};
+		BB9406B12B416DF000525A5A /* Change Password View */ = {
+			isa = PBXGroup;
+			children = (
+				BB9406B22B416E4B00525A5A /* ChangePasswordView.storyboard */,
+				BB9406B42B416E5F00525A5A /* ChangePasswordViewController.swift */,
+			);
+			path = "Change Password View";
+			sourceTree = "<group>";
+		};
+		BB9406BF2B419D9E00525A5A /* Log Out Sheet View */ = {
+			isa = PBXGroup;
+			children = (
+				BB9406C02B419DB700525A5A /* LogOutSheetView.storyboard */,
+				BB9406C22B419DD600525A5A /* LogOutSheetViewController.swift */,
+			);
+			path = "Log Out Sheet View";
+			sourceTree = "<group>";
+		};
+		BBF67F30E15368416196F7A9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0443829D6823D5CF5866E9E8 /* Pods_GymEventManager.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -218,17 +308,18 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BB924C282B2EFCFE003BB1DE /* Build configuration list for PBXNativeTarget "GymEventManager" */;
 			buildPhases = (
+				B342120F605F05191461809A /* [CP] Check Pods Manifest.lock */,
 				BB924C102B2EFCFB003BB1DE /* Sources */,
 				BB924C122B2EFCFB003BB1DE /* Resources */,
 				BB19D3D32B306AC300C6C90E /* ShellScript */,
+				62FAAC93F64FB0CB2EA25763 /* Frameworks */,
+				1D974B2675FF835882344944 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = GymEventManager;
-			packageProductDependencies = (
-			);
 			productName = GymEventManager;
 			productReference = BB924C142B2EFCFB003BB1DE /* GymEventManager.app */;
 			productType = "com.apple.product-type.application";
@@ -260,8 +351,6 @@
 				Base,
 			);
 			mainGroup = BB924C0B2B2EFCFA003BB1DE;
-			packageReferences = (
-			);
 			productRefGroup = BB924C152B2EFCFB003BB1DE /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -276,10 +365,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BB9406A12B3D83A300525A5A /* test.storyboard in Resources */,
+				BB9406A12B3D83A300525A5A /* OnboardingView.storyboard in Resources */,
+				BB9406A72B3D9D9300525A5A /* ProfileView.storyboard in Resources */,
 				BB94068F2B3C2A8F00525A5A /* .swiftlint.yml in Resources */,
 				BB9406912B3C5A6A00525A5A /* LogInView.storyboard in Resources */,
+				BB9406B32B416E4B00525A5A /* ChangePasswordView.storyboard in Resources */,
 				BB20FE802B330A9E00AB2D84 /* Fonts in Resources */,
+				BB9406B02B3DA95900525A5A /* AccountInfoView.storyboard in Resources */,
 				BBFD2BC22B3478A600FFA17D /* TableViewCell.xib in Resources */,
 				BB8756AC2B3B0ECB0082BB6D /* HeaderCell.xib in Resources */,
 				BBFD2BBA2B34376D00FFA17D /* CollectionViewCell.xib in Resources */,
@@ -288,12 +380,52 @@
 				BB9406942B3C5DE800525A5A /* SignUpView.storyboard in Resources */,
 				BB94069A2B3D7AC400525A5A /* EventDetailsView.storyboard in Resources */,
 				BB924C212B2EFCFE003BB1DE /* Assets.xcassets in Resources */,
+				BB9406C12B419DB700525A5A /* LogOutSheetView.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		1D974B2675FF835882344944 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GymEventManager/Pods-GymEventManager-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GymEventManager/Pods-GymEventManager-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GymEventManager/Pods-GymEventManager-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B342120F605F05191461809A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GymEventManager-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		BB19D3D32B306AC300C6C90E /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			alwaysOutOfDate = 1;
@@ -320,13 +452,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB9406C32B419DD600525A5A /* LogOutSheetViewController.swift in Sources */,
 				BBFD2BBC2B34532700FFA17D /* EventDetailsViewController.swift in Sources */,
 				BB43B1202B399EDD0016872D /* UIView+Extension.swift in Sources */,
+				BB9406AE2B3DA93100525A5A /* AccountInfoViewController.swift in Sources */,
 				BBFD2BBE2B34772200FFA17D /* Team.swift in Sources */,
 				BB20FE822B3311FF00AB2D84 /* Event.swift in Sources */,
+				BB9406B52B416E5F00525A5A /* ChangePasswordViewController.swift in Sources */,
 				BB8756AB2B3B0ECB0082BB6D /* HeaderCell.swift in Sources */,
 				BBD93B102B303F9B003BB447 /* LoginViewController.swift in Sources */,
 				BBFD2BC12B3478A600FFA17D /* TableViewCell.swift in Sources */,
+				BB9406AB2B3D9DE700525A5A /* ProfileViewController.swift in Sources */,
 				BB924C1C2B2EFCFB003BB1DE /* OnboardingViewController.swift in Sources */,
 				BB19D3D72B31A9DA00C6C90E /* Validators.swift in Sources */,
 				BB20FE882B34156000AB2D84 /* HomeViewController.swift in Sources */,
@@ -476,6 +612,7 @@
 		};
 		BB924C292B2EFCFE003BB1DE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1DA52D66C3A2A7B8615C7E53 /* Pods-GymEventManager.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -511,6 +648,7 @@
 		};
 		BB924C2A2B2EFCFE003BB1DE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4FF6BB0F1FA9FD42CCB26ECC /* Pods-GymEventManager.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

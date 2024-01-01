@@ -7,11 +7,12 @@
 
 import UIKit
 
-class SceneDelegate: UIResponder, UIWindowSceneDelegate {
+class SceneDelegate: UIResponder, UIWindowSceneDelegate, UIApplicationDelegate {
     var window: UIWindow?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession,
                options connectionOptions: UIScene.ConnectionOptions) {
+        UIApplication.shared.delegate = self
         guard let windowScene = (scene as? UIWindowScene) else { return }
         if let accessToken = UserDefaults.standard.string(forKey: "accessToken") {
             User.shared.accessToken = accessToken
@@ -22,7 +23,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             self.window = window
             window.makeKeyAndVisible()
         } else {
-            let newStoryboard = UIStoryboard(name: "test", bundle: nil)
+            let newStoryboard = UIStoryboard(name: "OnboardingView", bundle: nil)
             let newInitialViewController = newStoryboard.instantiateInitialViewController()
             let window = UIWindow(windowScene: windowScene)
             window.rootViewController = newInitialViewController

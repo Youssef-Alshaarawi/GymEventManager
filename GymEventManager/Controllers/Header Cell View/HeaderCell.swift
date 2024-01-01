@@ -17,5 +17,4 @@ class HeaderCell: UITableViewCell {
             eventImageView.load(url: URL(string: currentEvent.imageURL)!)
         }
     }
-    
 }

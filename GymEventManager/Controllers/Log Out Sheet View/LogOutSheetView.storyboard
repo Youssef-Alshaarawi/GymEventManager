@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="sf-ui-display-bold.otf">
+            <string>SFUIDisplay-Bold</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Log Out Sheet View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="LogOutSheetViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="LogOutSheetViewController" customModule="GymEventManager" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Are You sure you want to log out?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GH5-0c-cB1">
+                                <rect key="frame" x="51" y="79" width="277" height="22"/>
+                                <fontDescription key="fontDescription" name="SFUIDisplay-Bold" family="SF UI Display" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dkz-GO-gc1">
+                                <rect key="frame" x="0.0" y="140" width="393" height="34"/>
+                                <color key="tintColor" red="1" green="0.0" blue="0.074509803921568626" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Log out">
+                                    <fontDescription key="titleFontDescription" name="SFUIDisplay-Medium" family="SF UI Display" pointSize="16"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="logOutPressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="O16-nv-Yqn"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eql-6n-2QR">
+                                <rect key="frame" x="0.0" y="125" width="393" height="1"/>
+                                <color key="backgroundColor" red="0.92941176470588238" green="0.92941176470588238" blue="0.92941176470588238" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="CPh-rm-Fx6"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kCt-ds-V7r">
+                                <rect key="frame" x="0.0" y="203" width="393" height="34"/>
+                                <color key="tintColor" red="0.32156862745098036" green="0.32156862745098036" blue="0.32156862745098036" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="No, Thanks">
+                                    <fontDescription key="titleFontDescription" name="SFUIDisplay-Medium" family="SF UI Display" pointSize="16"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="cancelPressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="G7O-Jl-7xl"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b6N-td-DY8">
+                                <rect key="frame" x="0.0" y="188" width="393" height="1"/>
+                                <color key="backgroundColor" red="0.92941176469999998" green="0.92941176469999998" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="CLg-o7-9px"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="1" id="M16-fE-pdC"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Eql-6n-2QR" firstAttribute="top" secondItem="GH5-0c-cB1" secondAttribute="bottom" constant="24" id="1FL-Rn-lsg"/>
+                            <constraint firstItem="kCt-ds-V7r" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="4rr-i4-fAQ"/>
+                            <constraint firstItem="Eql-6n-2QR" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="BRy-Es-t6a"/>
+                            <constraint firstItem="GH5-0c-cB1" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="51" id="G5m-fg-Bd3"/>
+                            <constraint firstItem="dkz-GO-gc1" firstAttribute="top" secondItem="Eql-6n-2QR" secondAttribute="bottom" constant="14" id="PT4-R3-Mcv"/>
+                            <constraint firstItem="dkz-GO-gc1" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Rrq-JB-QdB"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="dkz-GO-gc1" secondAttribute="trailing" id="UpE-RI-d3Z"/>
+                            <constraint firstItem="kCt-ds-V7r" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="exr-tw-Gdg"/>
+                            <constraint firstItem="b6N-td-DY8" firstAttribute="top" secondItem="dkz-GO-gc1" secondAttribute="bottom" constant="14" id="fAT-Jc-Lfg"/>
+                            <constraint firstItem="kCt-ds-V7r" firstAttribute="top" secondItem="b6N-td-DY8" secondAttribute="bottom" constant="14" id="itO-bd-DpS"/>
+                            <constraint firstItem="GH5-0c-cB1" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="lY4-95-6us"/>
+                            <constraint firstItem="kCt-ds-V7r" firstAttribute="top" secondItem="b6N-td-DY8" secondAttribute="bottom" constant="14" id="pgt-te-faP"/>
+                            <constraint firstItem="b6N-td-DY8" firstAttribute="trailing" secondItem="5EZ-qb-Rvc" secondAttribute="trailing" id="rew-DO-Kzd"/>
+                            <constraint firstAttribute="trailing" secondItem="Eql-6n-2QR" secondAttribute="trailing" id="sWO-wj-tV3"/>
+                            <constraint firstItem="b6N-td-DY8" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="xNX-yK-FuY"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="59" y="-34"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

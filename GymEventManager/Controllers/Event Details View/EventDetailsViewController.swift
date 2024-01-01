@@ -10,16 +10,10 @@ import UIKit
 class EventDetailsViewController: UIViewController {
 
     var event: Event?
-    /*
-    @IBOutlet weak var eventDescLabel: UILabel!
-    @IBOutlet weak var eventImageView: UIImageView!
-    
-     */
     @IBOutlet weak var eventNameLabel: UIButton!
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.interactivePopGestureRecognizer?.delegate = nil
         tableView.dataSource = self
         tableView.delegate = self
         self.tableView.rowHeight = UITableView.automaticDimension
@@ -29,11 +23,6 @@ class EventDetailsViewController: UIViewController {
         if let currentEvent = event {
             eventNameLabel.titleLabel?.text?.append(currentEvent.name)
         }
-    }
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-
-        navigationController?.interactivePopGestureRecognizer?.isEnabled = navigationController?.viewControllers.count ?? 0 > 1
     }
     @IBAction func backPressed(_ sender: UIButton) {
        navigationController?.popViewController(animated: true)

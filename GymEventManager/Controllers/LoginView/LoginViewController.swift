@@ -13,7 +13,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     override func viewDidLoad() {
-        navigationController?.interactivePopGestureRecognizer?.delegate = nil
+//        navigationController?.interactivePopGestureRecognizer?.delegate = nil
         navigationController?.isNavigationBarHidden = true
         emailTextField.delegate = self
         passwordTextField.delegate = self
@@ -29,10 +29,15 @@ class LoginViewController: UIViewController {
         let tap = UITapGestureRecognizer(target: self, action: #selector(LoginViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
     }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+
+//        navigationController?.interactivePopGestureRecognizer?.isEnabled = navigationController?.viewControllers.count ?? 0 > 1
+    }
     @objc func dismissKeyboard() {
         view.endEditing(true)
     }
-// MARK: - Buttons Actions
+    // MARK: - Buttons Actions
     @IBAction func backButton(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }
@@ -57,9 +62,12 @@ class LoginViewController: UIViewController {
                 sender.showLoading()
                 let accessToken = "dummyToken"
                 User.shared.accessToken = accessToken
+                User.shared.email = emailTextField.text!
                 DispatchQueue.main.async {
                     let homeView = UIStoryboard.init(name: "HomeView", bundle: Bundle.main).instantiateViewController(withIdentifier: "HomeView") as? HomeViewController
-                    self.navigationController?.setViewControllers([homeView!], animated: true)
+                    let navController = UINavigationController(rootViewController: homeView!)
+                    let appDelegate = UIApplication.shared.delegate as? SceneDelegate
+                    appDelegate!.window?.rootViewController = navController
                 }
             }
         } else {
@@ -96,5 +104,16 @@ extension LoginViewController: UITextFieldDelegate {
         if textField == passwordTextField {
             passwordErrorLabel.isHidden = true
         }
+    }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        switch textField {
+        case self.emailTextField:
+            self.passwordTextField.becomeFirstResponder()
+        default: do {
+            self.passwordTextField.resignFirstResponder()
+            self.loginPressed(LoadingButton())
+        }
+        }
+        return true
     }
 }

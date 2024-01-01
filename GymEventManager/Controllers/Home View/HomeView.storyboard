@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -27,19 +28,36 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="8xM-yT-Cg3">
-                                <rect key="frame" x="24" y="119" width="345" height="72"/>
+                                <rect key="frame" x="24" y="119" width="345" height="67"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Events" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GIE-6F-36F">
-                                        <rect key="frame" x="0.0" y="0.0" width="75.666666666666671" height="29"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="29" id="Zz3-8B-Jtd"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="SFUIDisplay-Bold" family="SF UI Display" pointSize="24"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PzB-HS-tBY">
+                                        <rect key="frame" x="0.0" y="0.0" width="345" height="24"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Events" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GIE-6F-36F">
+                                                <rect key="frame" x="0.0" y="0.0" width="321" height="24"/>
+                                                <fontDescription key="fontDescription" name="SFUIDisplay-Bold" family="SF UI Display" pointSize="24"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CRq-ed-kXH">
+                                                <rect key="frame" x="321" y="0.0" width="24" height="24"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="24" id="CiJ-p1-vv5"/>
+                                                    <constraint firstAttribute="width" constant="24" id="Knn-2R-ITc"/>
+                                                </constraints>
+                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <buttonConfiguration key="configuration" style="plain">
+                                                    <imageReference key="image" image="Profile" symbolScale="large"/>
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" scale="default"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="profileButtonPressed:" destination="4Z0-Ld-apx" eventType="touchUpInside" id="msD-4y-35j"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="You can check your registered events" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xor-Pz-IMK">
-                                        <rect key="frame" x="0.0" y="39" width="219.33333333333334" height="17"/>
+                                        <rect key="frame" x="0.0" y="34" width="219.33333333333334" height="17"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="17" id="h8W-Tj-t1P"/>
                                         </constraints>
@@ -48,16 +66,20 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rli-cj-H84">
-                                        <rect key="frame" x="0.0" y="66" width="240" height="6"/>
+                                        <rect key="frame" x="0.0" y="61" width="240" height="6"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="6" id="vUX-xw-AfL"/>
                                         </constraints>
                                     </view>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="PzB-HS-tBY" secondAttribute="trailing" id="8o7-oF-x2v"/>
+                                    <constraint firstItem="PzB-HS-tBY" firstAttribute="leading" secondItem="8xM-yT-Cg3" secondAttribute="leading" id="OwJ-pv-y1Q"/>
+                                </constraints>
                             </stackView>
                             <searchBar contentMode="scaleToFill" verticalCompressionResistancePriority="749" searchBarStyle="minimal" placeholder="Search" translatesAutoresizingMaskIntoConstraints="NO" id="DLO-bE-MVc">
-                                <rect key="frame" x="15" y="191" width="354" height="35"/>
+                                <rect key="frame" x="15" y="186" width="354" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="rF4-DH-UrW"/>
                                 </constraints>
@@ -68,10 +90,10 @@
                                 </connections>
                             </searchBar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lhg-F9-mid">
-                                <rect key="frame" x="0.0" y="240" width="393" height="612"/>
+                                <rect key="frame" x="0.0" y="235" width="393" height="617"/>
                                 <subviews>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="XVg-zj-r8S">
-                                        <rect key="frame" x="24" y="19" width="345" height="593"/>
+                                        <rect key="frame" x="24" y="19" width="345" height="598"/>
                                         <color key="backgroundColor" red="0.96470588450000005" green="0.96470588450000005" blue="0.96470588450000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="14" minimumInteritemSpacing="11" id="cWO-G6-rdz">
                                             <size key="itemSize" width="158" height="150"/>
@@ -92,13 +114,13 @@
                                         </cells>
                                     </collectionView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Js-gB-p4q">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="612"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="617"/>
                                         <subviews>
                                             <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NoRegisterd" translatesAutoresizingMaskIntoConstraints="NO" id="KdJ-Ho-o4U">
-                                                <rect key="frame" x="82" y="213" width="229" height="186.33333333333337"/>
+                                                <rect key="frame" x="82" y="215.33333333333331" width="229" height="186.33333333333331"/>
                                             </imageView>
                                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="vdb-Fg-Ujm">
-                                                <rect key="frame" x="178" y="287.66666666666663" width="37" height="37"/>
+                                                <rect key="frame" x="178" y="290" width="37" height="37"/>
                                                 <color key="tintColor" red="0.23921568630000001" green="0.72156862749999995" blue="0.5568627451" alpha="1" colorSpace="calibratedRGB"/>
                                             </activityIndicatorView>
                                         </subviews>
@@ -173,6 +195,7 @@
     </scenes>
     <resources>
         <image name="NoRegisterd" width="229" height="186.33332824707031"/>
+        <image name="Profile" width="24" height="24"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

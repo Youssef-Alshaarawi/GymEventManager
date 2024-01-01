@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="sf-ui-display-medium.otf">
+            <string>SFUIDisplay-Medium</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Account Info View Controller-->
+        <scene sceneID="shl-Pb-Vb6">
+            <objects>
+                <viewController storyboardIdentifier="AccountInfoView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="fkh-r7-Ret" customClass="AccountInfoViewController" customModule="GymEventManager" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jMj-0V-NoT">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="okc-1m-Qsq">
+                                <rect key="frame" x="10" y="64" width="380" height="20"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FFI-Z7-tWc">
+                                        <rect key="frame" x="0.0" y="0.0" width="336" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="176" id="JeU-Df-1FD"/>
+                                        </constraints>
+                                        <buttonConfiguration key="configuration" style="plain" image="chevron.backward" catalog="system" title="  Account info">
+                                            <fontDescription key="titleFontDescription" name="SFUIDisplay-Bold" family="SF UI Display" pointSize="24"/>
+                                            <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="backButtonPressed:" destination="fkh-r7-Ret" eventType="touchUpInside" id="3qp-dt-EOA"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dNw-8k-e0u">
+                                        <rect key="frame" x="360" y="0.0" width="20" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="20" id="421-hK-qMu"/>
+                                            <constraint firstAttribute="height" constant="20" id="EYD-Y1-DDe"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="edit"/>
+                                        <connections>
+                                            <action selector="editButtonPressed:" destination="fkh-r7-Ret" eventType="touchUpInside" id="R5r-Pq-oSV"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mog-TA-Qki">
+                                <rect key="frame" x="24" y="109" width="37" height="17"/>
+                                <fontDescription key="fontDescription" name="SFUIDisplay-Medium" family="SF UI Display" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4EY-jv-6g6">
+                                <rect key="frame" x="24" y="131" width="366" height="44"/>
+                                <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="2RF-tU-nW8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SFUIDisplay-Medium" family="SF UI Display" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enter your name." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mwr-YA-AqM">
+                                <rect key="frame" x="24" y="175" width="126.5" height="13.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <color key="textColor" systemColor="systemPinkColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aW5-Gh-ado" userLabel="email">
+                                <rect key="frame" x="24" y="191" width="86.5" height="17"/>
+                                <fontDescription key="fontDescription" name="SFUIDisplay-Medium" family="SF UI Display" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cdY-3V-jpK">
+                                <rect key="frame" x="24" y="213" width="366" height="44"/>
+                                <color key="backgroundColor" red="0.94117647059999998" green="0.94117647059999998" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="rg1-Sc-VTs"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="SFUIDisplay-Medium" family="SF UI Display" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Invalid Email." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mRy-eG-rLe">
+                                <rect key="frame" x="24" y="257" width="68.5" height="13.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <color key="textColor" systemColor="systemPinkColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9rs-8Q-1ai" customClass="LoadingButton" customModule="GymEventManager" customModuleProvider="target">
+                                <rect key="frame" x="44" y="287" width="326" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="33P-Bu-Zus"/>
+                                </constraints>
+                                <color key="tintColor" red="0.23921568630000001" green="0.72156862749999995" blue="0.39607843139999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Save Changes" titleAlignment="automatic">
+                                    <fontDescription key="titleFontDescription" name="SFUIDisplay-Semibold" family="SF UI Display" pointSize="15"/>
+                                    <color key="baseBackgroundColor" red="0.23921568630000001" green="0.72156862749999995" blue="0.39607843139999999" alpha="1" colorSpace="calibratedRGB"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="saveButtonPressed:" destination="fkh-r7-Ret" eventType="touchUpInside" id="FRE-lk-ODg"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="KmV-pf-CHO"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="KmV-pf-CHO" firstAttribute="trailing" secondItem="9rs-8Q-1ai" secondAttribute="trailing" constant="44" id="36o-tk-Hii"/>
+                            <constraint firstItem="aW5-Gh-ado" firstAttribute="top" secondItem="4EY-jv-6g6" secondAttribute="bottom" constant="16" id="5nt-fz-I1U"/>
+                            <constraint firstItem="Mwr-YA-AqM" firstAttribute="top" secondItem="4EY-jv-6g6" secondAttribute="bottom" id="6QH-0d-Eyk"/>
+                            <constraint firstItem="okc-1m-Qsq" firstAttribute="top" secondItem="KmV-pf-CHO" secondAttribute="top" constant="16" id="AAy-Dv-FRy"/>
+                            <constraint firstItem="Mog-TA-Qki" firstAttribute="top" secondItem="okc-1m-Qsq" secondAttribute="bottom" constant="25" id="Dcu-LT-CaK"/>
+                            <constraint firstItem="4EY-jv-6g6" firstAttribute="top" secondItem="Mog-TA-Qki" secondAttribute="bottom" constant="5" id="NFA-sY-xfc"/>
+                            <constraint firstItem="9rs-8Q-1ai" firstAttribute="top" secondItem="cdY-3V-jpK" secondAttribute="bottom" constant="30" id="NML-JT-l44"/>
+                            <constraint firstItem="okc-1m-Qsq" firstAttribute="leading" secondItem="KmV-pf-CHO" secondAttribute="leading" constant="10" id="OBC-ym-hgV"/>
+                            <constraint firstItem="KmV-pf-CHO" firstAttribute="trailing" secondItem="4EY-jv-6g6" secondAttribute="trailing" constant="24" id="QnR-bz-PN9"/>
+                            <constraint firstItem="mRy-eG-rLe" firstAttribute="top" secondItem="cdY-3V-jpK" secondAttribute="bottom" id="crM-jf-4c9"/>
+                            <constraint firstItem="mRy-eG-rLe" firstAttribute="leading" secondItem="jMj-0V-NoT" secondAttribute="leading" constant="24" id="eFA-rL-3u5"/>
+                            <constraint firstItem="KmV-pf-CHO" firstAttribute="trailing" secondItem="okc-1m-Qsq" secondAttribute="trailing" constant="24" id="eGv-YC-Ur1"/>
+                            <constraint firstItem="9rs-8Q-1ai" firstAttribute="leading" secondItem="KmV-pf-CHO" secondAttribute="leading" constant="44" id="lex-m6-rcd"/>
+                            <constraint firstItem="Mwr-YA-AqM" firstAttribute="leading" secondItem="jMj-0V-NoT" secondAttribute="leading" constant="24" id="oZp-Wq-IvP"/>
+                            <constraint firstItem="KmV-pf-CHO" firstAttribute="trailing" secondItem="cdY-3V-jpK" secondAttribute="trailing" constant="24" id="p6s-kg-uzo"/>
+                            <constraint firstItem="Mog-TA-Qki" firstAttribute="leading" secondItem="KmV-pf-CHO" secondAttribute="leading" constant="24" id="qSh-UO-UiE"/>
+                            <constraint firstItem="cdY-3V-jpK" firstAttribute="leading" secondItem="KmV-pf-CHO" secondAttribute="leading" constant="24" id="qlm-d7-w80"/>
+                            <constraint firstItem="cdY-3V-jpK" firstAttribute="top" secondItem="aW5-Gh-ado" secondAttribute="bottom" constant="5" id="rDm-iF-Zwg"/>
+                            <constraint firstItem="cdY-3V-jpK" firstAttribute="top" secondItem="aW5-Gh-ado" secondAttribute="bottom" constant="5" id="ukf-4m-WlC"/>
+                            <constraint firstItem="aW5-Gh-ado" firstAttribute="leading" secondItem="KmV-pf-CHO" secondAttribute="leading" constant="24" id="w3K-e0-IsU"/>
+                            <constraint firstItem="4EY-jv-6g6" firstAttribute="leading" secondItem="KmV-pf-CHO" secondAttribute="leading" constant="24" id="wRk-gL-Fnr"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="editButton" destination="dNw-8k-e0u" id="1dE-MA-qnU"/>
+                        <outlet property="emailErrorLabel" destination="mRy-eG-rLe" id="hGr-dg-cpK"/>
+                        <outlet property="emailTextField" destination="cdY-3V-jpK" id="zEB-sh-J9I"/>
+                        <outlet property="nameErrorLabel" destination="Mwr-YA-AqM" id="FlY-4Z-tFX"/>
+                        <outlet property="nameTextField" destination="4EY-jv-6g6" id="CW1-OY-R2t"/>
+                        <outlet property="saveButton" destination="9rs-8Q-1ai" id="hE9-eT-dXk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="w5b-BT-WsN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="130.53435114503816" y="-28.169014084507044"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="chevron.backward" catalog="system" width="97" height="128"/>
+        <image name="edit" width="19.5" height="19.5"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
