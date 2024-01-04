@@ -8,40 +8,61 @@
 import UIKit
 
 class OnboardingViewController: UIViewController {
+    
+    // MARK: - IBOutlet Variables
     @IBOutlet weak var pillPageControl: UIPageControl!
     @IBOutlet weak var mainImageView: UIImageView!
-    var currentPage = 1
     @IBOutlet weak var getStartedButton: UIButton!
+    
+    // MARK: - Properties
+    var currentPage = 1
     let imageString = "onboarding-image-"
     var login = false
+    
+    // MARK: - LifeCycle Functions
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupView()
+    }
+    
+    private func setupView() {
+        setupNavigationController()
+        setupSwipingGestures()
+        setupPageControl()
+    }
+    
+    private func setupPageControl() {
+        pillPageControl.preferredIndicatorImage = UIImage(named: "Rectangle 2")
+    }
+    
+    private func setupSwipingGestures() {
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture))
         swipeRight.direction = UISwipeGestureRecognizer.Direction.right
         view.addGestureRecognizer(swipeRight)
         let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture))
         swipeLeft.direction = UISwipeGestureRecognizer.Direction.left
         view.addGestureRecognizer(swipeLeft)
-        navigationItem.setHidesBackButton(true, animated: false)
-        pillPageControl.preferredIndicatorImage = UIImage(named: "Rectangle 2")
     }
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-
-        navigationController?.interactivePopGestureRecognizer?.isEnabled = navigationController?.viewControllers.count ?? 0 > 1
+    
+    private func setupNavigationController() {
+        navigationController?.navigationBar.isHidden = true
     }
-    @IBAction func getStartedPressed(_ sender: UIButton) {
+    
+    // MARK: - Actions
+    @IBAction private func getStartedPressed(_ sender: UIButton) {
         if login {
             skipButtonPressed(sender)
         } else {
             swipingLeft()
         }
     }
-    @IBAction func skipButtonPressed(_ sender: UIButton) {
-        let loginView = UIStoryboard.init(name: "LogInView", bundle: Bundle.main).instantiateViewController(withIdentifier: "LogInView") as? LoginViewController
-        self.navigationController?.pushViewController(loginView!, animated: true)
+    
+    @IBAction private func skipButtonPressed(_ sender: UIButton) {
+        let loginView = LoginViewController.getViewController(storyBoard: "LogInView", viewController: "LogInView")
+        self.navigationController?.pushViewController(loginView, animated: true)
     }
-    @IBAction func pageControlChanged(_ sender: UIPageControl) {
+    
+    @IBAction private func pageControlChanged(_ sender: UIPageControl) {
         while sender.currentPage+1 > currentPage {
             swipingLeft()
         }
@@ -49,8 +70,9 @@ class OnboardingViewController: UIViewController {
             swipingRight()
         }
     }
-    // MARK: - Swiping gesture
-    @objc func respondToSwipeGesture(gesture: UIGestureRecognizer) {
+    
+    // MARK: - Swiping gesture functions
+    @objc private func respondToSwipeGesture(gesture: UIGestureRecognizer) {
         if let swipeGesture = gesture as? UISwipeGestureRecognizer {
             switch swipeGesture.direction {
             case UISwipeGestureRecognizer.Direction.right:
@@ -58,11 +80,12 @@ class OnboardingViewController: UIViewController {
             case UISwipeGestureRecognizer.Direction.left:
                 swipingLeft()
             default:
-                    break
+                break
             }
         }
     }
-    func swipingRight() {
+    
+    private func swipingRight() {
         if currentPage > 1 {
             currentPage-=1
         }
@@ -70,7 +93,8 @@ class OnboardingViewController: UIViewController {
         login = false
         updateUI()
     }
-    func swipingLeft() {
+    
+    private func swipingLeft() {
         if currentPage < 3 {
             currentPage+=1
         }
@@ -83,12 +107,13 @@ class OnboardingViewController: UIViewController {
         }
         updateUI()
     }
-    func updateUI() {
+    
+    private func updateUI() {
         UIView.transition(with: mainImageView,
                           duration: 0.6,
                           options: .transitionCrossDissolve,
                           animations: { self.mainImageView.image = UIImage(named:
-                                        "\(self.imageString)\(self.currentPage).png")},
+                                                                            "\(self.imageString)\(self.currentPage).png")},
                           completion: nil)
         pillPageControl.currentPage = currentPage-1
     }

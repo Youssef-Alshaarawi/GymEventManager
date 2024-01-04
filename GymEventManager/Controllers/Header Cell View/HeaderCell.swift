@@ -9,8 +9,11 @@ import UIKit
 
 class HeaderCell: UITableViewCell {
 
+    // MARK: - IBOutlet Variables
     @IBOutlet weak var eventDescLabel: UILabel!
     @IBOutlet weak var eventImageView: UIImageView!
+    
+    // MARK: - Configuration
     func configure(event: Event?) {
         if let currentEvent = event {
             eventDescLabel.text = currentEvent.description

@@ -8,21 +8,32 @@
 import UIKit
 
 class HomeViewController: UIViewController {
-    var events: [Event]?
-    var searchedEvents: [Event] = []
+    
+    // MARK: - IBOutlet Variables
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var loadingView: UIView!
     @IBOutlet weak var noEventsImageView: UIImageView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
+    // MARK: - Properties
+    private var events: [Event]?
+    private var searchedEvents: [Event] = []
+    
+    // MARK: - LifeCycle Functions
     override func viewDidLoad() {
-        super.viewDidLoad()
-        navigationController?.navigationBar.isHidden = true
-        collectionView.register(UINib(nibName: "CollectionViewCell", bundle: .main), forCellWithReuseIdentifier: "Cell")
-        collectionView.dataSource = self
-        collectionView.delegate = self
-        activityIndicator.startAnimating()
+        setupView()
+    }
+    
+    private func setupView() {
+        setupNavigationController()
+        setupCollectionView()
         getEvents()
+        setupShowEvents()
+    }
+    
+    private func setupShowEvents() {
+        activityIndicator.startAnimating()
         searchedEvents = events ?? []
         DispatchQueue.global().async {
             sleep(1)
@@ -37,7 +48,18 @@ class HomeViewController: UIViewController {
             }
         }
     }
-    func getEvents() {
+    
+    private func setupCollectionView() {
+        collectionView.register(UINib(nibName: "CollectionViewCell", bundle: .main), forCellWithReuseIdentifier: "Cell")
+        collectionView.dataSource = self
+        collectionView.delegate = self
+    }
+    
+    private func setupNavigationController() {
+        navigationController?.navigationBar.isHidden = true
+    }
+    
+    private func getEvents() {
         events = [Event(
             name: "test",
             description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesett",
@@ -62,30 +84,26 @@ class HomeViewController: UIViewController {
                              imageURL:
                                 "https://www.cats.org.uk/uploads/images/featurebox_sidebar_kids/grief-and-loss.jpg",
                              teams: nil        ))
-
+        
         events?.append(Event(name: "shost",
                              description: "Lorem Ipsum is simply dummy text",
                              imageURL:
                                 "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Cat03.jpg/1200px-Cat03.jpg",
                              teams: nil        ))
-
-         events?.append(Event(name: "Arizona",
+        
+        events?.append(Event(name: "Arizona",
                              description: "Lorem Ipsum is simply dummy text",
-                              imageURL:
+                             imageURL:
                                 "https://www.petmd.com/sites/default/files/petmd-cat-happy-13.jpg",
-                              teams: nil))
+                             teams: nil))
     }
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-//        navigationController?.interactivePopGestureRecognizer?.isEnabled = navigationController?.viewControllers.count ?? 0 > 1
-    }
-    @IBAction func profileButtonPressed(_ sender: UIButton) {
-        DispatchQueue.main.async {
-            let profileView = UIStoryboard.init(name: "ProfileView", bundle: Bundle.main).instantiateViewController(withIdentifier: "ProfileView") as? ProfileViewController
-            self.navigationController?.pushViewController(profileView!, animated: true)
-        }
+    
+    @IBAction private func profileButtonPressed(_ sender: UIButton) {
+        let profileView = ProfileViewController.getViewController(storyBoard: "ProfileView", viewController: "ProfileView")
+        self.navigationController?.pushViewController(profileView, animated: true)
     }
 }
+
 // MARK: - SearchBarMethods
 extension HomeViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -117,6 +135,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return searchedEvents.count
     }
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath)
     -> UICollectionViewCell {
         if let eventCell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
@@ -126,12 +145,13 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         }
         return UICollectionViewCell()
     }
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let index = indexPath.row
         DispatchQueue.main.async {
-            let eventDetailsView = UIStoryboard.init(name: "EventDetailsView", bundle: Bundle.main).instantiateViewController(withIdentifier: "EventDetailsView") as? EventDetailsViewController
-            eventDetailsView?.event = self.searchedEvents[index]
-            self.navigationController?.pushViewController(eventDetailsView!, animated: true)
+            let eventDetailsView = EventDetailsViewController.getViewController(storyBoard: "EventDetailsView", viewController: "EventDetailsView")
+            eventDetailsView.event = self.searchedEvents[index]
+            self.navigationController?.pushViewController(eventDetailsView, animated: true)
         }
     }
 }

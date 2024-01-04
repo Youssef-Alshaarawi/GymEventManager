@@ -36,6 +36,9 @@
 		BB9406B52B416E5F00525A5A /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9406B42B416E5F00525A5A /* ChangePasswordViewController.swift */; };
 		BB9406C12B419DB700525A5A /* LogOutSheetView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB9406C02B419DB700525A5A /* LogOutSheetView.storyboard */; };
 		BB9406C32B419DD600525A5A /* LogOutSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB9406C22B419DD600525A5A /* LogOutSheetViewController.swift */; };
+		BBCE534B2B456E4A0081D9F4 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBCE534A2B456E4A0081D9F4 /* UIViewController+Extension.swift */; };
+		BBCE534D2B4694190081D9F4 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBCE534C2B4694190081D9F4 /* UIImageView+Extension.swift */; };
+		BBCE534F2B46949E0081D9F4 /* LoadingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBCE534E2B46949E0081D9F4 /* LoadingButton.swift */; };
 		BBD93B102B303F9B003BB447 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD93B0F2B303F9B003BB447 /* LoginViewController.swift */; };
 		BBFD2BB92B34376D00FFA17D /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBFD2BB72B34376C00FFA17D /* CollectionViewCell.swift */; };
 		BBFD2BBA2B34376D00FFA17D /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBFD2BB82B34376C00FFA17D /* CollectionViewCell.xib */; };
@@ -81,6 +84,9 @@
 		BB9406B42B416E5F00525A5A /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
 		BB9406C02B419DB700525A5A /* LogOutSheetView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LogOutSheetView.storyboard; sourceTree = "<group>"; };
 		BB9406C22B419DD600525A5A /* LogOutSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogOutSheetViewController.swift; sourceTree = "<group>"; };
+		BBCE534A2B456E4A0081D9F4 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		BBCE534C2B4694190081D9F4 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
+		BBCE534E2B46949E0081D9F4 /* LoadingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingButton.swift; sourceTree = "<group>"; };
 		BBD93B0F2B303F9B003BB447 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		BBFD2BB72B34376C00FFA17D /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		BBFD2BB82B34376C00FFA17D /* CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
@@ -142,6 +148,9 @@
 				BB924C252B2EFCFE003BB1DE /* Info.plist */,
 				BB924C582B2F18A7003BB1DE /* Fonts */,
 				BB43B11F2B399EDD0016872D /* UIView+Extension.swift */,
+				BBCE534A2B456E4A0081D9F4 /* UIViewController+Extension.swift */,
+				BBCE534C2B4694190081D9F4 /* UIImageView+Extension.swift */,
+				BBCE534E2B46949E0081D9F4 /* LoadingButton.swift */,
 			);
 			path = GymEventManager;
 			sourceTree = "<group>";
@@ -157,16 +166,16 @@
 		BB924C322B2F046B003BB1DE /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				BB9406BF2B419D9E00525A5A /* Log Out Sheet View */,
-				BB9406B12B416DF000525A5A /* Change Password View */,
-				BB9406AC2B3DA91700525A5A /* Account Info View */,
-				BB9406A32B3D9D2F00525A5A /* Profile View */,
 				BB94069F2B3D7CC700525A5A /* Onboarding View */,
 				BB9406922B3C5DA500525A5A /* LoginView */,
 				BB9406952B3C5E9800525A5A /* SignUpView */,
 				BB9406982B3D771400525A5A /* Home View */,
-				BB94069C2B3D7C7E00525A5A /* Collection View Cell */,
 				BB94069B2B3D7C6500525A5A /* Event Details View */,
+				BB9406A32B3D9D2F00525A5A /* Profile View */,
+				BB9406AC2B3DA91700525A5A /* Account Info View */,
+				BB9406B12B416DF000525A5A /* Change Password View */,
+				BB9406BF2B419D9E00525A5A /* Log Out Sheet View */,
+				BB94069C2B3D7C7E00525A5A /* Collection View Cell */,
 				BB94069E2B3D7CA300525A5A /* Table View Cell */,
 				BB94069D2B3D7C9000525A5A /* Header Cell View */,
 			);
@@ -464,12 +473,15 @@
 				BBFD2BC12B3478A600FFA17D /* TableViewCell.swift in Sources */,
 				BB9406AB2B3D9DE700525A5A /* ProfileViewController.swift in Sources */,
 				BB924C1C2B2EFCFB003BB1DE /* OnboardingViewController.swift in Sources */,
+				BBCE534F2B46949E0081D9F4 /* LoadingButton.swift in Sources */,
 				BB19D3D72B31A9DA00C6C90E /* Validators.swift in Sources */,
 				BB20FE882B34156000AB2D84 /* HomeViewController.swift in Sources */,
 				BB924C182B2EFCFB003BB1DE /* AppDelegate.swift in Sources */,
 				BB924C1A2B2EFCFB003BB1DE /* SceneDelegate.swift in Sources */,
 				BB20FE842B33179500AB2D84 /* User.swift in Sources */,
 				BB43B11A2B385A890016872D /* GetEvents.swift in Sources */,
+				BBCE534D2B4694190081D9F4 /* UIImageView+Extension.swift in Sources */,
+				BBCE534B2B456E4A0081D9F4 /* UIViewController+Extension.swift in Sources */,
 				BB19D3D52B3078A600C6C90E /* SignUpViewController.swift in Sources */,
 				BBFD2BB92B34376D00FFA17D /* CollectionViewCell.swift in Sources */,
 			);

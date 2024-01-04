@@ -8,8 +8,12 @@
 import UIKit
 
 class TableViewCell: UITableViewCell {
+    
+    // MARK: - IBOutlet Variables
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var teamImage: UIImageView!
+    
+    // MARK: - Configuration
     func configure(with team: Team?) {
         if let currentTeam = team {
             label.text = currentTeam.name

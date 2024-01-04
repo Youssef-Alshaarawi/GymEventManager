@@ -8,78 +8,98 @@
 import UIKit
 
 class LoginViewController: UIViewController {
+    
+    // MARK: - IBOutlet Variables
     @IBOutlet weak var passwordErrorLabel: UILabel!
     @IBOutlet weak var emailErrorLabel: UILabel!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
+    
+    // MARK: - LifeCycle Functions
     override func viewDidLoad() {
-//        navigationController?.interactivePopGestureRecognizer?.delegate = nil
-        navigationController?.isNavigationBarHidden = true
+        setupView()
+    }
+    
+    private func setupView() {
+        setupTextFields()
+        setupDismissKeyboardGesture()
+    }
+    
+    private func setupDismissKeyboardGesture() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(LoginViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+    }
+    
+    private func setupTextFields() {
         emailTextField.delegate = self
+        emailTextField.keyboardType = .emailAddress
+        
         passwordTextField.delegate = self
+        passwordTextField.rightViewMode = .always
+        passwordTextField.rightView = getHidePasswordButton()
+    }
+    
+    private func getHidePasswordButton() -> UIButton {
         let rightButton  = UIButton()
         rightButton.setImage(UIImage(systemName: "eye.fill"), for: .normal)
         rightButton.tintColor = .gray
         rightButton.configuration = UIButton.Configuration.plain()
-        rightButton.configuration?.contentInsets = NSDirectionalEdgeInsets(top: 15, leading: 0, bottom: 15, trailing: 10)
+        rightButton.configuration?.contentInsets = NSDirectionalEdgeInsets(top: 15,
+                                                                           leading: 0,
+                                                                           bottom: 15,
+                                                                           trailing: 10)
         rightButton.configuration?.buttonSize = UIButton.Configuration.Size.mini
         rightButton.addTarget(self, action: #selector(changePasswordVisibility(_:)), for: .touchUpInside)
-        passwordTextField.rightViewMode = .always
-        passwordTextField.rightView = rightButton
-        let tap = UITapGestureRecognizer(target: self, action: #selector(LoginViewController.dismissKeyboard))
-        view.addGestureRecognizer(tap)
+        return rightButton
     }
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-
-//        navigationController?.interactivePopGestureRecognizer?.isEnabled = navigationController?.viewControllers.count ?? 0 > 1
-    }
-    @objc func dismissKeyboard() {
+    
+    @objc private func dismissKeyboard() {
         view.endEditing(true)
     }
+    
     // MARK: - Buttons Actions
-    @IBAction func backButton(_ sender: UIButton) {
+    @IBAction private func backButton(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }
-    @IBAction func loginPressed(_ sender: LoadingButton) {
-        emailTextField.resignFirstResponder()
-        passwordTextField.resignFirstResponder()
+    
+    @IBAction private func loginPressed(_ sender: LoadingButton) {
+        dismissKeyboard()
+        if validated() {
+            sender.showLoading()
+            // Api Call
+            let accessToken = "dummyToken"
+            User.shared.accessToken = accessToken
+            User.shared.email = emailTextField.text!
+            let homeView = HomeViewController.getViewController(storyBoard: "HomeView", viewController: "HomeView")
+            let navController = UINavigationController(rootViewController: homeView)
+            let appDelegate = UIApplication.shared.delegate as? SceneDelegate
+            appDelegate!.window?.rootViewController = navController
+        }
+    }
+    
+    private func validated() -> Bool {
         var success = true
         if let email = emailTextField.text, let password = passwordTextField.text {
-            // validate
             if !Validators.validateEmail(email) {
-                // error
                 emailErrorLabel.isHidden = false
                 success = false
             }
             if !Validators.validatePassword(password: password) {
-                // error
                 passwordErrorLabel.isHidden = false
                 success = false
             }
-            // login
-            if success {
-                sender.showLoading()
-                let accessToken = "dummyToken"
-                User.shared.accessToken = accessToken
-                User.shared.email = emailTextField.text!
-                DispatchQueue.main.async {
-                    let homeView = UIStoryboard.init(name: "HomeView", bundle: Bundle.main).instantiateViewController(withIdentifier: "HomeView") as? HomeViewController
-                    let navController = UINavigationController(rootViewController: homeView!)
-                    let appDelegate = UIApplication.shared.delegate as? SceneDelegate
-                    appDelegate!.window?.rootViewController = navController
-                }
-            }
         } else {
-            // errors and stuff
+            success = false
         }
+        return success
     }
-    @IBAction func createAccountPressed(_ sender: UIButton) {
-        let signUPView = UIStoryboard.init(name: "SignUpView", bundle: Bundle.main).instantiateViewController(withIdentifier: "SignUpView") as? SignUpViewController
-        self.navigationController?.pushViewController(signUPView!, animated: true)
+
+    @IBAction private func createAccountPressed(_ sender: UIButton) {
+        let signUPView = SignUpViewController.getViewController(storyBoard: "SignUpView", viewController: "SignUpView")
+        self.navigationController?.pushViewController(signUPView, animated: true)
     }
-    @objc func changePasswordVisibility(_ sender: UIButton) {
-        passwordTextField.resignFirstResponder()
+    
+    @objc private func changePasswordVisibility(_ sender: UIButton) {
         passwordTextField.isSecureTextEntry.toggle()
         if passwordTextField.isSecureTextEntry {
             if let image = UIImage(systemName: "eye.fill") {
@@ -95,6 +115,7 @@ class LoginViewController: UIViewController {
         }
     }
 }
+
 // MARK: - textfieldDelegate
 extension LoginViewController: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
@@ -105,14 +126,14 @@ extension LoginViewController: UITextFieldDelegate {
             passwordErrorLabel.isHidden = true
         }
     }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         switch textField {
         case self.emailTextField:
             self.passwordTextField.becomeFirstResponder()
-        default: do {
+        default:
             self.passwordTextField.resignFirstResponder()
             self.loginPressed(LoadingButton())
-        }
         }
         return true
     }

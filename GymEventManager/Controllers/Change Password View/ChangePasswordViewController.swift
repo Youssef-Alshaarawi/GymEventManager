@@ -8,37 +8,44 @@
 import UIKit
 
 class ChangePasswordViewController: UIViewController {
+    
+    // MARK: - IBOutlet Variables
     @IBOutlet weak var confirmPasswordTextField: UITextField!
     @IBOutlet weak var newPasswordTextField: UITextField!
     @IBOutlet weak var confirmPasswordErrorLabel: UILabel!
-    var currentTextField: UITextField?
-
     @IBOutlet weak var newPasswordErrorLabel: UILabel!
+    
+    // MARK: - LifeCycle Functions
     override func viewDidLoad() {
-        super.viewDidLoad()
-        confirmPasswordTextField.delegate = self
-        newPasswordTextField.delegate = self
-        var rightButton  = UIButton()
-        rightButton = initHidePassword(rightButton: rightButton, tag: 0)
-        newPasswordTextField.rightViewMode = .always
-        newPasswordTextField.rightView = rightButton
-        newPasswordTextField.textContentType = .oneTimeCode
-        rightButton  = UIButton(type: .custom)
-        rightButton = initHidePassword(rightButton: rightButton, tag: 1)
-        confirmPasswordTextField.rightViewMode = .always
-        confirmPasswordTextField.rightView = rightButton
+        setupView()
+    }
+    
+    private func setupView() {
+        setupTextField()
+        setupTapGesture()
+    }
+    
+    private func setupTapGesture() {
         let tap = UITapGestureRecognizer(target: self, action: #selector(ChangePasswordViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
     }
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-
-//        navigationController?.interactivePopGestureRecognizer?.isEnabled = navigationController?.viewControllers.count ?? 0 > 1
+    
+    private func setupTextField() {
+        newPasswordTextField.delegate = self
+        newPasswordTextField.rightViewMode = .always
+        newPasswordTextField.rightView = getHidePasswordButton(tag: 0)
+        
+        confirmPasswordTextField.delegate = self
+        confirmPasswordTextField.rightViewMode = .always
+        confirmPasswordTextField.rightView = getHidePasswordButton(tag: 1)
     }
-    @objc func dismissKeyboard() {
+    
+    @objc private func dismissKeyboard() {
         view.endEditing(true)
     }
-    func initHidePassword(rightButton: UIButton, tag: Int) -> UIButton {
+    
+    private func getHidePasswordButton(tag: Int) -> UIButton {
+        var rightButton  = UIButton()
         rightButton.setImage(UIImage(systemName: "eye.fill"), for: .normal)
         rightButton.configuration = UIButton.Configuration.plain()
         rightButton.configuration?.contentInsets = NSDirectionalEdgeInsets(top: 15, leading: 0, bottom: 15, trailing: 10)
@@ -48,7 +55,9 @@ class ChangePasswordViewController: UIViewController {
         rightButton.tag = tag
         return rightButton
     }
-    @objc func changePasswordVisibility(_ sender: UIButton) {
+    
+    @objc private func changePasswordVisibility(_ sender: UIButton) {
+        var currentTextField: UITextField?
         if sender.tag == 0 {
             currentTextField = newPasswordTextField
         } else {
@@ -69,19 +78,26 @@ class ChangePasswordViewController: UIViewController {
             }
         }
     }
-    @IBAction func backButtonPressed(_ sender: UIButton) {
+    
+    // MARK: - Actions
+    @IBAction private func backButtonPressed(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }
     
-    @IBAction func saveChangesPressed(_ sender: LoadingButton) {
-        newPasswordTextField.resignFirstResponder()
-        confirmPasswordTextField.resignFirstResponder()
+    @IBAction private func saveChangesPressed(_ sender: LoadingButton) {
+        dismissKeyboard()
+        if validated() {
+            // sender.showLoading()
+            // Api call
+        }
+        
+    }
+    
+    private func validated() -> Bool {
         var success = true
         if let confirmPassword = confirmPasswordTextField.text,
            let password = newPasswordTextField.text {
-            // validate
             if !Validators.validatePassword(password: password) {
-                // error
                 newPasswordErrorLabel.isHidden = false
                 success = false
             }
@@ -89,15 +105,13 @@ class ChangePasswordViewController: UIViewController {
                 confirmPasswordErrorLabel.isHidden = false
                 success = false
             }
-            // login
-            if success {
-                // sender.showLoading()
-            }
         } else {
-            // errors and stuff
+            success = false
         }
+        return success
     }
 }
+
 // MARK: - textfieldDelegate
 extension ChangePasswordViewController: UITextFieldDelegate {
     func textFieldDidBeginEditing(_ textField: UITextField) {
@@ -107,14 +121,14 @@ extension ChangePasswordViewController: UITextFieldDelegate {
             confirmPasswordErrorLabel.isHidden = true
         }
     }
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         switch textField {
         case self.newPasswordTextField:
             self.confirmPasswordTextField.becomeFirstResponder()
-        default: do {
-                self.confirmPasswordTextField.resignFirstResponder()
-                self.saveChangesPressed(LoadingButton())
-            }
+        default:
+            self.confirmPasswordTextField.resignFirstResponder()
+            self.saveChangesPressed(LoadingButton())
         }
         return true
     }

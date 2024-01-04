@@ -12,24 +12,20 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate, UIApplicationDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession,
                options connectionOptions: UIScene.ConnectionOptions) {
-        UIApplication.shared.delegate = self
         guard let windowScene = (scene as? UIWindowScene) else { return }
+        let window = UIWindow(windowScene: windowScene)
+        let newInitialViewController: UIViewController
+        UIApplication.shared.delegate = self
         if let accessToken = UserDefaults.standard.string(forKey: "accessToken") {
             User.shared.accessToken = accessToken
-            let newStoryboard = UIStoryboard(name: "HomeView", bundle: nil)
-            let newInitialViewController = newStoryboard.instantiateInitialViewController()
-            let window = UIWindow(windowScene: windowScene)
-            window.rootViewController = newInitialViewController
-            self.window = window
-            window.makeKeyAndVisible()
+            newInitialViewController = HomeViewController.getViewController(storyBoard: "HomeView", viewController: "HomeView")
         } else {
-            let newStoryboard = UIStoryboard(name: "OnboardingView", bundle: nil)
-            let newInitialViewController = newStoryboard.instantiateInitialViewController()
-            let window = UIWindow(windowScene: windowScene)
-            window.rootViewController = newInitialViewController
-            self.window = window
-            window.makeKeyAndVisible()
+            newInitialViewController = OnboardingViewController.getViewController(storyBoard: "OnboardingView", viewController: "onboardingView")
         }
+        let navController = UINavigationController(rootViewController: newInitialViewController)
+        window.rootViewController = navController
+        self.window = window
+        window.makeKeyAndVisible()
     }
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.

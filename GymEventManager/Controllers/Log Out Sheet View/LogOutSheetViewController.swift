@@ -8,16 +8,17 @@
 import UIKit
 
 class LogOutSheetViewController: UIViewController {
+    
+    // MARK: - Actions
     var didTapLogout: (() -> Void)?
     
-    @IBAction func logOutPressed(_ sender: UIButton) {
+    @IBAction private func logOutPressed(_ sender: UIButton) {
         self.dismiss(animated: true) { [weak self] in
             self?.didTapLogout?()
         }
     }
     
-    @IBAction func cancelPressed(_ sender: UIButton) {
-        ProfileViewController.logOut = true
+    @IBAction private func cancelPressed(_ sender: UIButton) {
         self.dismiss(animated: true)
     }
 }
