@@ -10,11 +10,11 @@ import UIKit
 class HomeViewController: UIViewController {
     
     // MARK: - IBOutlet Variables
-    @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var searchBar: UISearchBar!
-    @IBOutlet weak var loadingView: UIView!
-    @IBOutlet weak var noEventsImageView: UIImageView!
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet private weak var collectionView: UICollectionView!
+    @IBOutlet private weak var searchBar: UISearchBar!
+    @IBOutlet private weak var loadingView: UIView!
+    @IBOutlet private weak var noEventsImageView: UIImageView!
+    @IBOutlet private weak var activityIndicator: UIActivityIndicatorView!
     
     // MARK: - Properties
     private var events: [Event]?
@@ -33,24 +33,33 @@ class HomeViewController: UIViewController {
     }
     
     private func setupShowEvents() {
-        activityIndicator.startAnimating()
+        showActivityIndicator()
         searchedEvents = events ?? []
         DispatchQueue.global().async {
             sleep(1)
-            DispatchQueue.main.async {
-                self.activityIndicator.stopAnimating()
-                self.activityIndicator.isHidden = true
-                if self.searchedEvents.isEmpty {
-                    self.noEventsImageView.isHidden = false
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self else {return}
+                self.hideActivityIndicator()
+                if searchedEvents.isEmpty {
+                    noEventsImageView.isHidden = false
                 } else {
-                    self.loadingView.isHidden = true
+                    loadingView.isHidden = true
                 }
             }
         }
     }
     
+    private func showActivityIndicator() {
+        activityIndicator.startAnimating()
+    }
+    
+    private func hideActivityIndicator() {
+        self.activityIndicator.stopAnimating()
+        self.activityIndicator.isHidden = true
+    }
+    
     private func setupCollectionView() {
-        collectionView.register(UINib(nibName: "CollectionViewCell", bundle: .main), forCellWithReuseIdentifier: "Cell")
+        collectionView.register(UINib(nibName: "EventCellView", bundle: .main), forCellWithReuseIdentifier: "eventCell")
         collectionView.dataSource = self
         collectionView.delegate = self
     }
@@ -138,8 +147,8 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath)
     -> UICollectionViewCell {
-        if let eventCell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
-            as? CollectionViewCell {
+        if let eventCell = collectionView.dequeueReusableCell(withReuseIdentifier: "eventCell", for: indexPath)
+            as? EventCell {
             eventCell.configure(with: searchedEvents[indexPath.row])
             return eventCell
         }

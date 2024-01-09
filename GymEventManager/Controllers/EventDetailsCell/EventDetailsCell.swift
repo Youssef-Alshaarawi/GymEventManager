@@ -7,11 +7,11 @@
 
 import UIKit
 
-class HeaderCell: UITableViewCell {
+class EventDetailsCell: UITableViewCell {
 
     // MARK: - IBOutlet Variables
-    @IBOutlet weak var eventDescLabel: UILabel!
-    @IBOutlet weak var eventImageView: UIImageView!
+    @IBOutlet private weak var eventDescLabel: UILabel!
+    @IBOutlet private weak var eventImageView: UIImageView!
     
     // MARK: - Configuration
     func configure(event: Event?) {

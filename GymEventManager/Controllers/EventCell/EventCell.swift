@@ -7,12 +7,12 @@
 
 import UIKit
 
-class CollectionViewCell: UICollectionViewCell {
+class EventCell: UICollectionViewCell {
     
     // MARK: - IBOutlet Variables
-    @IBOutlet weak var eventDesc: UILabel!
-    @IBOutlet weak var eventName: UILabel!
-    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet private weak var eventDesc: UILabel!
+    @IBOutlet private weak var eventName: UILabel!
+    @IBOutlet private weak var imageView: UIImageView!
     
     // MARK: - Configuration
     func configure(with event: Event) {

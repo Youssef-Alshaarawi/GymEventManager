@@ -28,13 +28,21 @@ class ProfileViewController: UIViewController {
     @IBAction private func logOutPressed(_ sender: Any) {
         let logoutView = LogOutSheetViewController.getViewController(storyBoard: "LogOutSheetView", viewController: "LogOutSheetViewController")
         logoutView.didTapLogout = { [weak self] in
-            let VC1 = OnboardingViewController.getViewController(storyBoard: "OnboardingView", viewController: "onboardingView")
-            let navController = UINavigationController(rootViewController: VC1)
-            let appDelegate = UIApplication.shared.delegate as? SceneDelegate
-            appDelegate!.window?.rootViewController = navController
+            self?.performLogOut()
         }
+        showLogoutSheetView(logoutView)
+    }
+    
+    private func showLogoutSheetView(_ logoutView: LogOutSheetViewController) {
         let sheetController = SheetViewController(controller: logoutView, sizes: [ .fixed(240)])
         sheetController.gripSize = CGSize(width: 50, height: 5)
         self.present(sheetController, animated: true, completion: nil)
+    }
+    
+    private func performLogOut() {
+        let VC1 = OnboardingViewController.getViewController(storyBoard: "OnboardingView", viewController: "onboardingView")
+        let navController = UINavigationController(rootViewController: VC1)
+        let appDelegate = UIApplication.shared.delegate as? SceneDelegate
+        appDelegate!.window?.rootViewController = navController
     }
 }

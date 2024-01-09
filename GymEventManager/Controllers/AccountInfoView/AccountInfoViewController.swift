@@ -10,12 +10,12 @@ import UIKit
 class AccountInfoViewController: UIViewController {
     
     // MARK: - IBOutlet Variables
-    @IBOutlet weak var nameErrorLabel: UILabel!
-    @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var editButton: UIButton!
-    @IBOutlet weak var saveButton: LoadingButton!
-    @IBOutlet weak var nameTextField: UITextField!
-    @IBOutlet weak var emailErrorLabel: UILabel!
+    @IBOutlet private weak var nameErrorLabel: UILabel!
+    @IBOutlet private weak var emailTextField: UITextField!
+    @IBOutlet private weak var editButton: UIButton!
+    @IBOutlet private weak var saveButton: LoadingButton!
+    @IBOutlet private weak var nameTextField: UITextField!
+    @IBOutlet private weak var emailErrorLabel: UILabel!
     
     // MARK: - LifeCycle Functions
     override func viewDidLoad() {
@@ -38,17 +38,17 @@ class AccountInfoViewController: UIViewController {
     
     @IBAction private func saveButtonPressed(_ sender: LoadingButton) {
         view.endEditing(true)
-            if validated() {
-                // sender.showLoading()
-                // Api Call
-                User.shared.name = nameTextField.text
-                User.shared.email = emailTextField.text!
-                saveButton.isHidden = true
-                editButton.isHidden = false
-                changeTextFieldState(nameTextField)
-                changeTextFieldState(emailTextField)
-            }
+        if validated() {
+            // sender.showLoading()
+            // Api Call
+            User.shared.name = nameTextField.text
+            User.shared.email = emailTextField.text!
+            saveButton.isHidden = true
+            editButton.isHidden = false
+            changeTextFieldState(nameTextField)
+            changeTextFieldState(emailTextField)
         }
+    }
     
     private func validated() -> Bool {
         var success = true
@@ -61,9 +61,10 @@ class AccountInfoViewController: UIViewController {
             if !Validators.validateEmail(email) {
                 emailErrorLabel.isHidden = false
                 success = false
-            } else {
-                success = false
             }
+        }
+        else {
+            success = false
         }
         return success
     }

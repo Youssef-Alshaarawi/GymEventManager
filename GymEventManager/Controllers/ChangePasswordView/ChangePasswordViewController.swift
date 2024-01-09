@@ -10,10 +10,10 @@ import UIKit
 class ChangePasswordViewController: UIViewController {
     
     // MARK: - IBOutlet Variables
-    @IBOutlet weak var confirmPasswordTextField: UITextField!
-    @IBOutlet weak var newPasswordTextField: UITextField!
-    @IBOutlet weak var confirmPasswordErrorLabel: UILabel!
-    @IBOutlet weak var newPasswordErrorLabel: UILabel!
+    @IBOutlet private weak var confirmPasswordTextField: UITextField!
+    @IBOutlet private weak var newPasswordTextField: UITextField!
+    @IBOutlet private weak var confirmPasswordErrorLabel: UILabel!
+    @IBOutlet private weak var newPasswordErrorLabel: UILabel!
     
     // MARK: - LifeCycle Functions
     override func viewDidLoad() {
@@ -33,50 +33,15 @@ class ChangePasswordViewController: UIViewController {
     private func setupTextField() {
         newPasswordTextField.delegate = self
         newPasswordTextField.rightViewMode = .always
-        newPasswordTextField.rightView = getHidePasswordButton(tag: 0)
+        newPasswordTextField.rightView = newPasswordTextField.getHidePasswordButton()
         
         confirmPasswordTextField.delegate = self
         confirmPasswordTextField.rightViewMode = .always
-        confirmPasswordTextField.rightView = getHidePasswordButton(tag: 1)
+        confirmPasswordTextField.rightView = confirmPasswordTextField.getHidePasswordButton()
     }
     
     @objc private func dismissKeyboard() {
         view.endEditing(true)
-    }
-    
-    private func getHidePasswordButton(tag: Int) -> UIButton {
-        var rightButton  = UIButton()
-        rightButton.setImage(UIImage(systemName: "eye.fill"), for: .normal)
-        rightButton.configuration = UIButton.Configuration.plain()
-        rightButton.configuration?.contentInsets = NSDirectionalEdgeInsets(top: 15, leading: 0, bottom: 15, trailing: 10)
-        rightButton.configuration?.buttonSize = UIButton.Configuration.Size.mini
-        rightButton.tintColor = .gray
-        rightButton.addTarget(self, action: #selector(changePasswordVisibility(_:)), for: .touchUpInside)
-        rightButton.tag = tag
-        return rightButton
-    }
-    
-    @objc private func changePasswordVisibility(_ sender: UIButton) {
-        var currentTextField: UITextField?
-        if sender.tag == 0 {
-            currentTextField = newPasswordTextField
-        } else {
-            currentTextField = confirmPasswordTextField
-        }
-        currentTextField?.isSecureTextEntry.toggle()
-        currentTextField?.resignFirstResponder()
-        if currentTextField!.isSecureTextEntry {
-            if let image = UIImage(systemName: "eye.fill") {
-                sender.setImage(image, for: .normal)
-            }
-            let realText = currentTextField?.text
-            currentTextField?.text = nil
-            currentTextField?.insertText(realText ?? "")
-        } else {
-            if let image = UIImage(systemName: "eye.slash.fill") {
-                sender.setImage(image, for: .normal)
-            }
-        }
     }
     
     // MARK: - Actions

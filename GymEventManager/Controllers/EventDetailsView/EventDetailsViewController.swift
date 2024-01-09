@@ -10,8 +10,8 @@ import UIKit
 class EventDetailsViewController: UIViewController {
     
     // MARK: - IBOutlet Variables
-    @IBOutlet weak var eventNameLabel: UIButton!
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet private weak var eventNameLabel: UIButton!
+    @IBOutlet private weak var tableView: UITableView!
     
     // MARK: - Properties
     var event: Event?
@@ -28,7 +28,7 @@ class EventDetailsViewController: UIViewController {
     
     private func setupEventNameLabel() {
         if let currentEvent = event {
-            eventNameLabel.titleLabel?.text?.append(currentEvent.name)
+            eventNameLabel.setTitle(currentEvent.name, for: .normal)
         }
     }
     
@@ -36,8 +36,8 @@ class EventDetailsViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.rowHeight = UITableView.automaticDimension
-        tableView.register(UINib(nibName: "TableViewCell", bundle: .main), forCellReuseIdentifier: "TableCell")
-        tableView.register(UINib(nibName: "HeaderCell", bundle: .main), forCellReuseIdentifier: "HeaderCell")
+        tableView.register(UINib(nibName: "TeamCellView", bundle: .main), forCellReuseIdentifier: "teamCell")
+        tableView.register(UINib(nibName: "EventDetailsCellView", bundle: .main), forCellReuseIdentifier: "eventDetailsCell")
     }
     
     // MARK: - Actions
@@ -55,14 +55,22 @@ extension EventDetailsViewController: UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
-            if let tCell = tableView.dequeueReusableCell(withIdentifier: "HeaderCell", for: indexPath) as? HeaderCell {
-                tCell.configure(event: event)
-                return tCell
+            if let cell = getEventDetailsCell(indexPath) {
+                cell.configure(event: event)
+                return cell
             }
-        } else if let tCell = tableView.dequeueReusableCell(withIdentifier: "TableCell", for: indexPath) as? TableViewCell {
-            tCell.configure(with: event?.teams?[indexPath.row-1])
-            return tCell
+        } else if let cell = getTeamCell(indexPath) {
+            cell.configure(with: event?.teams?[indexPath.row-1])
+            return cell
         }
         return UITableViewCell()
+    }
+    
+    private func getEventDetailsCell(_ indexPath: IndexPath) -> EventDetailsCell? {
+        return tableView.dequeueReusableCell(withIdentifier: "eventDetailsCell", for: indexPath) as? EventDetailsCell
+    }
+    
+    private func getTeamCell(_ indexPath: IndexPath) -> TeamCell? {
+        return tableView.dequeueReusableCell(withIdentifier: "teamCell", for: indexPath) as? TeamCell
     }
 }

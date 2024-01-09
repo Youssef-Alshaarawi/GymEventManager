@@ -10,9 +10,9 @@ import UIKit
 class OnboardingViewController: UIViewController {
     
     // MARK: - IBOutlet Variables
-    @IBOutlet weak var pillPageControl: UIPageControl!
-    @IBOutlet weak var mainImageView: UIImageView!
-    @IBOutlet weak var getStartedButton: UIButton!
+    @IBOutlet private weak var pillPageControl: UIPageControl!
+    @IBOutlet private weak var mainImageView: UIImageView!
+    @IBOutlet private weak var getStartedButton: UIButton!
     
     // MARK: - Properties
     var currentPage = 1
@@ -63,10 +63,10 @@ class OnboardingViewController: UIViewController {
     }
     
     @IBAction private func pageControlChanged(_ sender: UIPageControl) {
-        while sender.currentPage+1 > currentPage {
+        let newPage = sender.currentPage + 1
+        if newPage > currentPage {
             swipingLeft()
-        }
-        while sender.currentPage+1 < currentPage {
+        } else if newPage < currentPage {
             swipingRight()
         }
     }
@@ -112,8 +112,10 @@ class OnboardingViewController: UIViewController {
         UIView.transition(with: mainImageView,
                           duration: 0.6,
                           options: .transitionCrossDissolve,
-                          animations: { self.mainImageView.image = UIImage(named:
-                                                                            "\(self.imageString)\(self.currentPage).png")},
+                          animations: { [weak self] in
+            guard let self =  self else { return }
+            self.mainImageView.image = UIImage(named: "\(self.imageString)\(self.currentPage).png")
+        },
                           completion: nil)
         pillPageControl.currentPage = currentPage-1
     }

@@ -9,14 +9,14 @@ import UIKit
 class SignUpViewController: UIViewController {
     
     // MARK: - IBOutlet Variables
-    @IBOutlet weak var nameErrorLabel: UILabel!
-    @IBOutlet weak var emailErrorLabel: UILabel!
-    @IBOutlet weak var passwordErrorLabel: UILabel!
-    @IBOutlet weak var confirmPasswordErrorLabel: UILabel!
-    @IBOutlet weak var confirmPasswordTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet private weak var nameErrorLabel: UILabel!
+    @IBOutlet private weak var emailErrorLabel: UILabel!
+    @IBOutlet private weak var passwordErrorLabel: UILabel!
+    @IBOutlet private weak var confirmPasswordErrorLabel: UILabel!
+    @IBOutlet private weak var confirmPasswordTextField: UITextField!
+    @IBOutlet private weak var passwordTextField: UITextField!
+    @IBOutlet private weak var emailTextField: UITextField!
+    @IBOutlet private weak var nameTextField: UITextField!
     
     // MARK: - LifeCycle Functions
     override func viewDidLoad() {
@@ -41,30 +41,15 @@ class SignUpViewController: UIViewController {
         
         passwordTextField.delegate = self
         passwordTextField.rightViewMode = .always
-        passwordTextField.rightView = getHidePasswordButton(tag: 0)
+        passwordTextField.rightView = passwordTextField.getHidePasswordButton()
         
         confirmPasswordTextField.delegate = self
         confirmPasswordTextField.rightViewMode = .always
-        confirmPasswordTextField.rightView = getHidePasswordButton(tag: 0)
+        confirmPasswordTextField.rightView = confirmPasswordTextField.getHidePasswordButton()
     }
     
     @objc private func dismissKeyboard() {
         view.endEditing(true)
-    }
-    
-    private func getHidePasswordButton(tag: Int) -> UIButton {
-        let rightButton  = UIButton()
-        rightButton.setImage(UIImage(systemName: "eye.fill"), for: .normal)
-        rightButton.configuration = UIButton.Configuration.plain()
-        rightButton.configuration?.contentInsets = NSDirectionalEdgeInsets(top: 15,
-                                                                           leading: 0,
-                                                                           bottom: 15,
-                                                                           trailing: 10)
-        rightButton.configuration?.buttonSize = UIButton.Configuration.Size.mini
-        rightButton.tintColor = .gray
-        rightButton.addTarget(self, action: #selector(changePasswordVisibility(_:)), for: .touchUpInside)
-        rightButton.tag = tag
-        return rightButton
     }
     
     // MARK: - Buttons Actions
@@ -72,71 +57,67 @@ class SignUpViewController: UIViewController {
         dismissKeyboard()
         if validated() {
             sender.showLoading()
-            // API Call
-            let accessToken = "dummyToken"
-            User.shared.accessToken = accessToken
-            User.shared.email = emailTextField.text!
-            User.shared.name = nameTextField.text
-            let homeView = HomeViewController.getViewController(storyBoard: "HomeView", viewController: "HomeView")
-            let navController = UINavigationController(rootViewController: homeView)
-            let appDelegate = UIApplication.shared.delegate as? SceneDelegate
-            appDelegate!.window?.rootViewController = navController
+            if let token = apiCall() {
+                User.shared.accessToken = token
+                User.shared.email = emailTextField.text!
+                goToHome()
+            } else {
+                sender.hideLoading()
+                // show error
+            }
         }
     }
     
+    private func goToHome() {
+        let homeView = HomeViewController.getViewController(storyBoard: "HomeView", viewController: "HomeView")
+        let navController = UINavigationController(rootViewController: homeView)
+        let appDelegate = UIApplication.shared.delegate as? SceneDelegate
+        appDelegate!.window?.rootViewController = navController
+    }
+    
+    private func apiCall() -> String? {
+        return "dummyToken"
+    }
+    
     private func validated() -> Bool {
-        var success = true
-        if let name = nameTextField.text,
-           let confirmPassword = confirmPasswordTextField.text,
-           let email = emailTextField.text,
-           let password = passwordTextField.text {
-            if name.isEmpty {
-                nameErrorLabel.isHidden = false
-                success = false
-            }
-            if !Validators.validateEmail(email) {
-                emailErrorLabel.isHidden = false
-                success = false
-            }
-            if !Validators.validatePassword(password: password) {
-                passwordErrorLabel.isHidden = false
-                success = false
-            }
-            if confirmPassword != password || confirmPassword.isEmpty {
-                confirmPasswordErrorLabel.isHidden = false
-                success = false
-            }
-        } else {
-            success = false
+        let nameValid = isNameValid(nameTextField.text ?? "")
+        let emailValid = isEmailValid(emailTextField.text ?? "")
+        let passwordValid = isPasswordValid(passwordTextField.text ?? "")
+        let passwordsMatch = doPasswordsMatch(passwordTextField.text ?? "", confirmPasswordTextField.text ?? "")
+        
+        return nameValid && emailValid && passwordValid && passwordsMatch
+    }
+    
+    private func isNameValid(_ text: String) -> Bool {
+        if text.isEmpty {
+            nameErrorLabel.isHidden = false
+            return false
         }
-        return success
+        return true
+    }
+    
+    private func isEmailValid(_ text: String) -> Bool {
+        if !Validators.validateEmail(text) {
+            emailErrorLabel.isHidden = false
+            return false
+        }
+        return true
+    }
+    
+    private func isPasswordValid(_ text: String) -> Bool {
+        if !Validators.validatePassword(password: text) {
+            passwordErrorLabel.isHidden = false
+            return false
+        }
+        return true
+    }
+    
+    private func doPasswordsMatch(_ text1: String, _ text2: String) -> Bool {
+        return text1 == text2
     }
     
     @IBAction private func backButtonPressed(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
-    }
-    
-    @objc private func changePasswordVisibility(_ sender: UIButton) {
-        var currentTextField: UITextField?
-        if sender.tag == 0 {
-            currentTextField = passwordTextField
-        } else {
-            currentTextField = confirmPasswordTextField
-        }
-        currentTextField?.isSecureTextEntry.toggle()
-        currentTextField?.resignFirstResponder()
-        if currentTextField!.isSecureTextEntry {
-            if let image = UIImage(systemName: "eye.fill") {
-                sender.setImage(image, for: .normal)
-            }
-            let realText = currentTextField?.text
-            currentTextField?.text = nil
-            currentTextField?.insertText(realText ?? "")
-        } else {
-            if let image = UIImage(systemName: "eye.slash.fill") {
-                sender.setImage(image, for: .normal)
-            }
-        }
     }
 }
 

@@ -10,10 +10,10 @@ import UIKit
 class LoginViewController: UIViewController {
     
     // MARK: - IBOutlet Variables
-    @IBOutlet weak var passwordErrorLabel: UILabel!
-    @IBOutlet weak var emailErrorLabel: UILabel!
-    @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet private weak var passwordErrorLabel: UILabel!
+    @IBOutlet private weak var emailErrorLabel: UILabel!
+    @IBOutlet private weak var passwordTextField: UITextField!
+    @IBOutlet private weak var emailTextField: UITextField!
     
     // MARK: - LifeCycle Functions
     override func viewDidLoad() {
@@ -36,21 +36,7 @@ class LoginViewController: UIViewController {
         
         passwordTextField.delegate = self
         passwordTextField.rightViewMode = .always
-        passwordTextField.rightView = getHidePasswordButton()
-    }
-    
-    private func getHidePasswordButton() -> UIButton {
-        let rightButton  = UIButton()
-        rightButton.setImage(UIImage(systemName: "eye.fill"), for: .normal)
-        rightButton.tintColor = .gray
-        rightButton.configuration = UIButton.Configuration.plain()
-        rightButton.configuration?.contentInsets = NSDirectionalEdgeInsets(top: 15,
-                                                                           leading: 0,
-                                                                           bottom: 15,
-                                                                           trailing: 10)
-        rightButton.configuration?.buttonSize = UIButton.Configuration.Size.mini
-        rightButton.addTarget(self, action: #selector(changePasswordVisibility(_:)), for: .touchUpInside)
-        return rightButton
+        passwordTextField.rightView = passwordTextField.getHidePasswordButton()
     }
     
     @objc private func dismissKeyboard() {
@@ -66,53 +52,54 @@ class LoginViewController: UIViewController {
         dismissKeyboard()
         if validated() {
             sender.showLoading()
-            // Api Call
-            let accessToken = "dummyToken"
-            User.shared.accessToken = accessToken
-            User.shared.email = emailTextField.text!
-            let homeView = HomeViewController.getViewController(storyBoard: "HomeView", viewController: "HomeView")
-            let navController = UINavigationController(rootViewController: homeView)
-            let appDelegate = UIApplication.shared.delegate as? SceneDelegate
-            appDelegate!.window?.rootViewController = navController
+            if let token = apiCall() {
+                User.shared.accessToken = token
+                User.shared.email = emailTextField.text!
+                goToHome()
+            } else {
+                sender.hideLoading()
+                // show error
+            }
         }
+    }
+    
+    private func goToHome() {
+        let homeView = HomeViewController.getViewController(storyBoard: "HomeView", viewController: "HomeView")
+        let navController = UINavigationController(rootViewController: homeView)
+        let appDelegate = UIApplication.shared.delegate as? SceneDelegate
+        appDelegate!.window?.rootViewController = navController
+    }
+    
+    private func apiCall() -> String? {
+        return "dummyToken"
     }
     
     private func validated() -> Bool {
-        var success = true
-        if let email = emailTextField.text, let password = passwordTextField.text {
-            if !Validators.validateEmail(email) {
-                emailErrorLabel.isHidden = false
-                success = false
-            }
-            if !Validators.validatePassword(password: password) {
-                passwordErrorLabel.isHidden = false
-                success = false
-            }
-        } else {
-            success = false
-        }
-        return success
+        let emailValid = isEmailValid(emailTextField.text ?? "")
+        let passwordValid = isPasswordValid(passwordTextField.text ?? "")
+        
+        return  emailValid && passwordValid
     }
-
+    
+    private func isEmailValid(_ text: String) -> Bool {
+        if !Validators.validateEmail(text) {
+            emailErrorLabel.isHidden = false
+            return false
+        }
+        return true
+    }
+    
+    private func isPasswordValid(_ text: String) -> Bool {
+        if !Validators.validatePassword(password: text) {
+            passwordErrorLabel.isHidden = false
+            return false
+        }
+        return true
+    }
+    
     @IBAction private func createAccountPressed(_ sender: UIButton) {
         let signUPView = SignUpViewController.getViewController(storyBoard: "SignUpView", viewController: "SignUpView")
         self.navigationController?.pushViewController(signUPView, animated: true)
-    }
-    
-    @objc private func changePasswordVisibility(_ sender: UIButton) {
-        passwordTextField.isSecureTextEntry.toggle()
-        if passwordTextField.isSecureTextEntry {
-            if let image = UIImage(systemName: "eye.fill") {
-                sender.setImage(image, for: .normal)
-            }
-            let realText = passwordTextField.text
-            passwordTextField.text = nil
-            passwordTextField.insertText(realText ?? "")
-        } else {
-            if let image = UIImage(systemName: "eye.slash.fill") {
-                sender.setImage(image, for: .normal)
-            }
-        }
     }
 }
 
