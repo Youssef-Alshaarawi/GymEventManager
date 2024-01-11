@@ -14,7 +14,7 @@ protocol GetEventsDelegate: AnyObject {
 }
 
 struct GetEvents {
-    let gymOwnersURL="https://something.com/gymOwners"
+    let gymOwnersURL="http://18.219.125.63/gymOwners"
     let token = UserDefaults.standard.string(forKey: "accessToken")
     var delegate: GetEventsDelegate?
     func getEvent() {

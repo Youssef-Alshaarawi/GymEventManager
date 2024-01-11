@@ -15,9 +15,7 @@ class OnboardingViewController: UIViewController {
     @IBOutlet private weak var getStartedButton: UIButton!
     
     // MARK: - Properties
-    var currentPage = 1
-    let imageString = "onboarding-image-"
-    var login = false
+    let onboardingViewModel = OnboardingViewModel()
     
     // MARK: - LifeCycle Functions
     override func viewDidLoad() {
@@ -32,13 +30,14 @@ class OnboardingViewController: UIViewController {
     }
     
     private func setupPageControl() {
-        pillPageControl.preferredIndicatorImage = UIImage(named: "Rectangle 2")
+        pillPageControl.preferredIndicatorImage = UIImage(named: onboardingViewModel.getPageControlImage())
     }
     
     private func setupSwipingGestures() {
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture))
         swipeRight.direction = UISwipeGestureRecognizer.Direction.right
         view.addGestureRecognizer(swipeRight)
+        
         let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture))
         swipeLeft.direction = UISwipeGestureRecognizer.Direction.left
         view.addGestureRecognizer(swipeLeft)
@@ -50,7 +49,7 @@ class OnboardingViewController: UIViewController {
     
     // MARK: - Actions
     @IBAction private func getStartedPressed(_ sender: UIButton) {
-        if login {
+        if onboardingViewModel.isLogin() {
             skipButtonPressed(sender)
         } else {
             swipingLeft()
@@ -64,9 +63,9 @@ class OnboardingViewController: UIViewController {
     
     @IBAction private func pageControlChanged(_ sender: UIPageControl) {
         let newPage = sender.currentPage + 1
-        if newPage > currentPage {
+        if newPage > onboardingViewModel.getCurrentPage() {
             swipingLeft()
-        } else if newPage < currentPage {
+        } else if newPage < onboardingViewModel.getCurrentPage() {
             swipingRight()
         }
     }
@@ -86,23 +85,17 @@ class OnboardingViewController: UIViewController {
     }
     
     private func swipingRight() {
-        if currentPage > 1 {
-            currentPage-=1
-        }
+        onboardingViewModel.swipingRight()
         getStartedButton.setTitle("Get Started", for: .normal)
-        login = false
         updateUI()
     }
     
     private func swipingLeft() {
-        if currentPage < 3 {
-            currentPage+=1
-        }
-        if currentPage == 3 {
+        onboardingViewModel.swipingLeft()
+        if onboardingViewModel.getCurrentPage() == 3 {
             DispatchQueue.main.async {
                 self.getStartedButton.setTitle("Login", for: .normal)
                 self.getStartedButton.titleLabel?.textAlignment = .center
-                self.login = true
             }
         }
         updateUI()
@@ -114,9 +107,9 @@ class OnboardingViewController: UIViewController {
                           options: .transitionCrossDissolve,
                           animations: { [weak self] in
             guard let self =  self else { return }
-            self.mainImageView.image = UIImage(named: "\(self.imageString)\(self.currentPage).png")
+            self.mainImageView.image = UIImage(named: "\(onboardingViewModel.getImageString())\(onboardingViewModel.getCurrentPage()).png")
         },
                           completion: nil)
-        pillPageControl.currentPage = currentPage-1
+        pillPageControl.currentPage = onboardingViewModel.getCurrentPage() - 1
     }
 }

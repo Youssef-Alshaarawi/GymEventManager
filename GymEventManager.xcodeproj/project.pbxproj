@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BB1419262B4DB1C000A35E53 /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1419252B4DB1C000A35E53 /* SignUp.swift */; };
+		BB1419292B4EC1F600A35E53 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1419282B4EC1F600A35E53 /* OnboardingViewModel.swift */; };
+		BB14192B2B4ECCEB00A35E53 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB14192A2B4ECCEB00A35E53 /* SignUpViewModel.swift */; };
+		BB14192D2B4FE83F00A35E53 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB14192C2B4FE83F00A35E53 /* Observable.swift */; };
+		BB14192F2B4FF6D800A35E53 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB14192E2B4FF6D800A35E53 /* Login.swift */; };
+		BB1419312B4FF91700A35E53 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1419302B4FF91700A35E53 /* Token.swift */; };
+		BB1419332B4FF93500A35E53 /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1419322B4FF93500A35E53 /* ErrorResponse.swift */; };
+		BB1419362B4FFBEF00A35E53 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1419352B4FFBEE00A35E53 /* LoginViewModel.swift */; };
+		BB1419382B50003800A35E53 /* LogoutViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1419372B50003800A35E53 /* LogoutViewModel.swift */; };
+		BB14193A2B5000D000A35E53 /* Logout.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1419392B5000CF00A35E53 /* Logout.swift */; };
 		BB19D3D52B3078A600C6C90E /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB19D3D42B3078A600C6C90E /* SignUpViewController.swift */; };
 		BB19D3D72B31A9DA00C6C90E /* Validators.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB19D3D62B31A9DA00C6C90E /* Validators.swift */; };
 		BB20FE802B330A9E00AB2D84 /* Fonts in Resources */ = {isa = PBXBuildFile; fileRef = BB924C582B2F18A7003BB1DE /* Fonts */; };
@@ -54,6 +64,16 @@
 		0443829D6823D5CF5866E9E8 /* Pods_GymEventManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GymEventManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DA52D66C3A2A7B8615C7E53 /* Pods-GymEventManager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GymEventManager.debug.xcconfig"; path = "Target Support Files/Pods-GymEventManager/Pods-GymEventManager.debug.xcconfig"; sourceTree = "<group>"; };
 		4FF6BB0F1FA9FD42CCB26ECC /* Pods-GymEventManager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GymEventManager.release.xcconfig"; path = "Target Support Files/Pods-GymEventManager/Pods-GymEventManager.release.xcconfig"; sourceTree = "<group>"; };
+		BB1419252B4DB1C000A35E53 /* SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
+		BB1419282B4EC1F600A35E53 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
+		BB14192A2B4ECCEB00A35E53 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		BB14192C2B4FE83F00A35E53 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
+		BB14192E2B4FF6D800A35E53 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
+		BB1419302B4FF91700A35E53 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
+		BB1419322B4FF93500A35E53 /* ErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
+		BB1419352B4FFBEE00A35E53 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		BB1419372B50003800A35E53 /* LogoutViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutViewModel.swift; sourceTree = "<group>"; };
+		BB1419392B5000CF00A35E53 /* Logout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logout.swift; sourceTree = "<group>"; };
 		BB19D3D42B3078A600C6C90E /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		BB19D3D62B31A9DA00C6C90E /* Validators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validators.swift; sourceTree = "<group>"; };
 		BB20FE812B3311FF00AB2D84 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
@@ -125,6 +145,7 @@
 				BB1419232B4D822200A35E53 /* Extensions */,
 				BB19D3D62B31A9DA00C6C90E /* Validators.swift */,
 				BBCE534E2B46949E0081D9F4 /* LoadingButton.swift */,
+				BB14192C2B4FE83F00A35E53 /* Observable.swift */,
 			);
 			path = Globals;
 			sourceTree = "<group>";
@@ -143,9 +164,33 @@
 		BB1419242B4D823C00A35E53 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				BB1419252B4DB1C000A35E53 /* SignUp.swift */,
+				BB1419392B5000CF00A35E53 /* Logout.swift */,
+				BB14192E2B4FF6D800A35E53 /* Login.swift */,
 				BB43B1192B385A890016872D /* GetEvents.swift */,
+				BB1419342B4FF93E00A35E53 /* Network Models */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		BB1419272B4EBF5100A35E53 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				BB1419352B4FFBEE00A35E53 /* LoginViewModel.swift */,
+				BB1419282B4EC1F600A35E53 /* OnboardingViewModel.swift */,
+				BB14192A2B4ECCEB00A35E53 /* SignUpViewModel.swift */,
+				BB1419372B50003800A35E53 /* LogoutViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		BB1419342B4FF93E00A35E53 /* Network Models */ = {
+			isa = PBXGroup;
+			children = (
+				BB1419302B4FF91700A35E53 /* Token.swift */,
+				BB1419322B4FF93500A35E53 /* ErrorResponse.swift */,
+			);
+			path = "Network Models";
 			sourceTree = "<group>";
 		};
 		BB924C0B2B2EFCFA003BB1DE = {
@@ -176,6 +221,7 @@
 				BB1419242B4D823C00A35E53 /* Network */,
 				BB924C332B2F0475003BB1DE /* Models */,
 				BB924C312B2F0463003BB1DE /* Views */,
+				BB1419272B4EBF5100A35E53 /* ViewModels */,
 				BB924C322B2F046B003BB1DE /* Controllers */,
 				BB924C202B2EFCFE003BB1DE /* Assets.xcassets */,
 				BB924C252B2EFCFE003BB1DE /* Info.plist */,
@@ -188,6 +234,9 @@
 			isa = PBXGroup;
 			children = (
 				BB924C222B2EFCFE003BB1DE /* LaunchScreen.storyboard */,
+				BB94069F2B3D7CC700525A5A /* OnboardingView */,
+				BB9406922B3C5DA500525A5A /* LoginView */,
+				BB9406952B3C5E9800525A5A /* SignUpView */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -195,9 +244,6 @@
 		BB924C322B2F046B003BB1DE /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				BB94069F2B3D7CC700525A5A /* OnboardingView */,
-				BB9406922B3C5DA500525A5A /* LoginView */,
-				BB9406952B3C5E9800525A5A /* SignUpView */,
 				BB9406982B3D771400525A5A /* HomeView */,
 				BB94069B2B3D7C6500525A5A /* EventDetailsView */,
 				BB9406A32B3D9D2F00525A5A /* ProfileView */,
@@ -488,8 +534,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB1419382B50003800A35E53 /* LogoutViewModel.swift in Sources */,
 				BB9406C32B419DD600525A5A /* LogOutSheetViewController.swift in Sources */,
 				BBFD2BBC2B34532700FFA17D /* EventDetailsViewController.swift in Sources */,
+				BB1419262B4DB1C000A35E53 /* SignUp.swift in Sources */,
+				BB1419332B4FF93500A35E53 /* ErrorResponse.swift in Sources */,
 				BB43B1202B399EDD0016872D /* UIView+Extension.swift in Sources */,
 				BB9406AE2B3DA93100525A5A /* AccountInfoViewController.swift in Sources */,
 				BBFD2BBE2B34772200FFA17D /* Team.swift in Sources */,
@@ -500,15 +549,22 @@
 				BBFD2BC12B3478A600FFA17D /* TeamCell.swift in Sources */,
 				BB9406AB2B3D9DE700525A5A /* ProfileViewController.swift in Sources */,
 				BB924C1C2B2EFCFB003BB1DE /* OnboardingViewController.swift in Sources */,
+				BB14192B2B4ECCEB00A35E53 /* SignUpViewModel.swift in Sources */,
 				BBCE534F2B46949E0081D9F4 /* LoadingButton.swift in Sources */,
 				BB19D3D72B31A9DA00C6C90E /* Validators.swift in Sources */,
 				BB20FE882B34156000AB2D84 /* HomeViewController.swift in Sources */,
+				BB1419362B4FFBEF00A35E53 /* LoginViewModel.swift in Sources */,
 				BB924C182B2EFCFB003BB1DE /* AppDelegate.swift in Sources */,
 				BB924C1A2B2EFCFB003BB1DE /* SceneDelegate.swift in Sources */,
 				BB20FE842B33179500AB2D84 /* User.swift in Sources */,
+				BB14193A2B5000D000A35E53 /* Logout.swift in Sources */,
+				BB1419292B4EC1F600A35E53 /* OnboardingViewModel.swift in Sources */,
+				BB1419312B4FF91700A35E53 /* Token.swift in Sources */,
 				BB43B11A2B385A890016872D /* GetEvents.swift in Sources */,
+				BB14192F2B4FF6D800A35E53 /* Login.swift in Sources */,
 				BBCE534D2B4694190081D9F4 /* UIImageView+Extension.swift in Sources */,
 				BBCE534B2B456E4A0081D9F4 /* UIViewController+Extension.swift in Sources */,
+				BB14192D2B4FE83F00A35E53 /* Observable.swift in Sources */,
 				BBCE53512B4D55640081D9F4 /* UITextField+Extension.swift in Sources */,
 				BB19D3D52B3078A600C6C90E /* SignUpViewController.swift in Sources */,
 				BBFD2BB92B34376D00FFA17D /* EventCell.swift in Sources */,

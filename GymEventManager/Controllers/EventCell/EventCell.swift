@@ -21,6 +21,3 @@ class EventCell: UICollectionViewCell {
         imageView.load(url: URL(string: event.imageURL)!)
     }
 }
-
-
-

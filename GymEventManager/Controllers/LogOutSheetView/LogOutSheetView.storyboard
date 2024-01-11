@@ -28,7 +28,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dkz-GO-gc1">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dkz-GO-gc1" customClass="LoadingButton" customModule="GymEventManager" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="140" width="393" height="34"/>
                                 <color key="tintColor" red="1" green="0.0" blue="0.074509803921568626" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Button"/>
@@ -86,6 +86,9 @@
                             <constraint firstItem="b6N-td-DY8" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="xNX-yK-FuY"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="logOutButton" destination="dkz-GO-gc1" id="Z5I-MB-m0L"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

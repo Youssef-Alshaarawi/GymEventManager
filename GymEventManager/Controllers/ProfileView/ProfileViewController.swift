@@ -40,9 +40,12 @@ class ProfileViewController: UIViewController {
     }
     
     private func performLogOut() {
-        let VC1 = OnboardingViewController.getViewController(storyBoard: "OnboardingView", viewController: "onboardingView")
-        let navController = UINavigationController(rootViewController: VC1)
-        let appDelegate = UIApplication.shared.delegate as? SceneDelegate
-        appDelegate!.window?.rootViewController = navController
+        DispatchQueue.main.async {
+            User.shared.accessToken = nil
+            let VC1 = OnboardingViewController.getViewController(storyBoard: "OnboardingView", viewController: "onboardingView")
+            let navController = UINavigationController(rootViewController: VC1)
+            let appDelegate = UIApplication.shared.delegate as? SceneDelegate
+            appDelegate!.window?.rootViewController = navController
+        }
     }
 }

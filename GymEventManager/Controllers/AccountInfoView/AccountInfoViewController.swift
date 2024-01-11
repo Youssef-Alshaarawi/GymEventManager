@@ -62,8 +62,7 @@ class AccountInfoViewController: UIViewController {
                 emailErrorLabel.isHidden = false
                 success = false
             }
-        }
-        else {
+        } else {
             success = false
         }
         return success

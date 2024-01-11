@@ -9,14 +9,18 @@ import UIKit
 class SignUpViewController: UIViewController {
     
     // MARK: - IBOutlet Variables
-    @IBOutlet private weak var nameErrorLabel: UILabel!
-    @IBOutlet private weak var emailErrorLabel: UILabel!
-    @IBOutlet private weak var passwordErrorLabel: UILabel!
-    @IBOutlet private weak var confirmPasswordErrorLabel: UILabel!
+    @IBOutlet weak var signUpButton: LoadingButton!
+    @IBOutlet  weak var nameErrorLabel: UILabel!
+    @IBOutlet  weak var emailErrorLabel: UILabel!
+    @IBOutlet  weak var passwordErrorLabel: UILabel!
+    @IBOutlet  weak var confirmPasswordErrorLabel: UILabel!
     @IBOutlet private weak var confirmPasswordTextField: UITextField!
     @IBOutlet private weak var passwordTextField: UITextField!
     @IBOutlet private weak var emailTextField: UITextField!
     @IBOutlet private weak var nameTextField: UITextField!
+    
+    // MARK: - ViewModel
+    var signUpViewModel = SignUpViewModel()
     
     // MARK: - LifeCycle Functions
     override func viewDidLoad() {
@@ -26,6 +30,37 @@ class SignUpViewController: UIViewController {
     private func setupView() {
         setupTextFields()
         setupDismissKeyboardGesture()
+        setupViewModel()
+    }
+    
+    private func setupViewModel() {
+        signUpViewModel.validName.bind { [weak self] isValid in
+            guard let self = self, let isValid = isValid else { return }
+            nameErrorLabel.isHidden = isValid
+        }
+        signUpViewModel.validEmail.bind { [weak self] isValid in
+            guard let self = self, let isValid = isValid else { return }
+            emailErrorLabel.isHidden = isValid
+        }
+        signUpViewModel.validPassword.bind { [weak self] isValid in
+            guard let self = self, let isValid = isValid else { return }
+            passwordErrorLabel.isHidden = isValid
+        }
+        signUpViewModel.validConfirmPassword.bind { [weak self] isValid in
+            guard let self = self, let isValid = isValid else { return }
+            confirmPasswordErrorLabel.isHidden = isValid
+        }
+        signUpViewModel.apiLoading.bind { [weak self] isLoading in
+            guard let self = self, let isLoading = isLoading else { return }
+            if isLoading {
+                signUpButton.showLoading()
+            } else {
+                signUpButton.hideLoading()
+            }
+        }
+        signUpViewModel.errorMessage.bind { [weak self] error in
+            print(error!)
+        }
     }
     
     private func setupDismissKeyboardGesture() {
@@ -55,65 +90,11 @@ class SignUpViewController: UIViewController {
     // MARK: - Buttons Actions
     @IBAction private func signUpPressed(_ sender: LoadingButton) {
         dismissKeyboard()
-        if validated() {
+        if signUpViewModel.validated(nameTextField.text, emailTextField.text,
+                                     passwordTextField.text!, confirmPasswordTextField.text) {
             sender.showLoading()
-            if let token = apiCall() {
-                User.shared.accessToken = token
-                User.shared.email = emailTextField.text!
-                goToHome()
-            } else {
-                sender.hideLoading()
-                // show error
-            }
+            signUpViewModel.doSignUp()
         }
-    }
-    
-    private func goToHome() {
-        let homeView = HomeViewController.getViewController(storyBoard: "HomeView", viewController: "HomeView")
-        let navController = UINavigationController(rootViewController: homeView)
-        let appDelegate = UIApplication.shared.delegate as? SceneDelegate
-        appDelegate!.window?.rootViewController = navController
-    }
-    
-    private func apiCall() -> String? {
-        return "dummyToken"
-    }
-    
-    private func validated() -> Bool {
-        let nameValid = isNameValid(nameTextField.text ?? "")
-        let emailValid = isEmailValid(emailTextField.text ?? "")
-        let passwordValid = isPasswordValid(passwordTextField.text ?? "")
-        let passwordsMatch = doPasswordsMatch(passwordTextField.text ?? "", confirmPasswordTextField.text ?? "")
-        
-        return nameValid && emailValid && passwordValid && passwordsMatch
-    }
-    
-    private func isNameValid(_ text: String) -> Bool {
-        if text.isEmpty {
-            nameErrorLabel.isHidden = false
-            return false
-        }
-        return true
-    }
-    
-    private func isEmailValid(_ text: String) -> Bool {
-        if !Validators.validateEmail(text) {
-            emailErrorLabel.isHidden = false
-            return false
-        }
-        return true
-    }
-    
-    private func isPasswordValid(_ text: String) -> Bool {
-        if !Validators.validatePassword(password: text) {
-            passwordErrorLabel.isHidden = false
-            return false
-        }
-        return true
-    }
-    
-    private func doPasswordsMatch(_ text1: String, _ text2: String) -> Bool {
-        return text1 == text2
     }
     
     @IBAction private func backButtonPressed(_ sender: UIButton) {

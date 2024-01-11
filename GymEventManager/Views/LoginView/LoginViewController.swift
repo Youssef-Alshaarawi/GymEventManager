@@ -10,10 +10,14 @@ import UIKit
 class LoginViewController: UIViewController {
     
     // MARK: - IBOutlet Variables
+    @IBOutlet weak var loginButton: LoadingButton!
     @IBOutlet private weak var passwordErrorLabel: UILabel!
     @IBOutlet private weak var emailErrorLabel: UILabel!
     @IBOutlet private weak var passwordTextField: UITextField!
     @IBOutlet private weak var emailTextField: UITextField!
+    
+    // MARK: - ViewModel
+    var loginViewModel = LoginViewModel()
     
     // MARK: - LifeCycle Functions
     override func viewDidLoad() {
@@ -23,6 +27,30 @@ class LoginViewController: UIViewController {
     private func setupView() {
         setupTextFields()
         setupDismissKeyboardGesture()
+        setupViewModel()
+    }
+    
+    private func setupViewModel() {
+        loginViewModel.validEmail.bind { [weak self] isValid in
+            guard let self = self, let isValid = isValid else { return }
+            emailErrorLabel.isHidden = isValid
+        }
+        loginViewModel.validPassword.bind { [weak self] isValid in
+            guard let self = self, let isValid = isValid else { return }
+            passwordErrorLabel.isHidden = isValid
+        }
+        loginViewModel.apiLoading.bind { [weak self] isLoading in
+            guard let self = self, let isLoading = isLoading else { return }
+            if isLoading {
+                loginButton.showLoading()
+            } else {
+                loginButton.hideLoading()
+            }
+        }
+        loginViewModel.errorMessage.bind { [weak self] error in
+            guard let self = self, let error = error else { return }
+            print(error)
+        }
     }
     
     private func setupDismissKeyboardGesture() {
@@ -50,54 +78,14 @@ class LoginViewController: UIViewController {
     
     @IBAction private func loginPressed(_ sender: LoadingButton) {
         dismissKeyboard()
-        if validated() {
+        if loginViewModel.validated(emailTextField.text,
+                                     passwordTextField.text!) {
             sender.showLoading()
-            if let token = apiCall() {
-                User.shared.accessToken = token
-                User.shared.email = emailTextField.text!
-                goToHome()
-            } else {
-                sender.hideLoading()
-                // show error
-            }
+            loginViewModel.doSignUp()
         }
     }
     
-    private func goToHome() {
-        let homeView = HomeViewController.getViewController(storyBoard: "HomeView", viewController: "HomeView")
-        let navController = UINavigationController(rootViewController: homeView)
-        let appDelegate = UIApplication.shared.delegate as? SceneDelegate
-        appDelegate!.window?.rootViewController = navController
-    }
-    
-    private func apiCall() -> String? {
-        return "dummyToken"
-    }
-    
-    private func validated() -> Bool {
-        let emailValid = isEmailValid(emailTextField.text ?? "")
-        let passwordValid = isPasswordValid(passwordTextField.text ?? "")
-        
-        return  emailValid && passwordValid
-    }
-    
-    private func isEmailValid(_ text: String) -> Bool {
-        if !Validators.validateEmail(text) {
-            emailErrorLabel.isHidden = false
-            return false
-        }
-        return true
-    }
-    
-    private func isPasswordValid(_ text: String) -> Bool {
-        if !Validators.validatePassword(password: text) {
-            passwordErrorLabel.isHidden = false
-            return false
-        }
-        return true
-    }
-    
-    @IBAction private func createAccountPressed(_ sender: UIButton) {
+   @IBAction private func createAccountPressed(_ sender: UIButton) {
         let signUPView = SignUpViewController.getViewController(storyBoard: "SignUpView", viewController: "SignUpView")
         self.navigationController?.pushViewController(signUPView, animated: true)
     }

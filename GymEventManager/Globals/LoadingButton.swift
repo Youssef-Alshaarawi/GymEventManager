@@ -56,4 +56,3 @@ class LoadingButton: UIButton {
         self.addConstraint(yCenterConstraint)
     }
 }
-

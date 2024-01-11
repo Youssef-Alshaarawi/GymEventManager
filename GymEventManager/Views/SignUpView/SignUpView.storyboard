@@ -154,6 +154,7 @@
                         <outlet property="nameTextField" destination="9ql-kk-Ygo" id="4xz-AC-7LF"/>
                         <outlet property="passwordErrorLabel" destination="Mke-yX-s4d" id="Rym-bX-zhu"/>
                         <outlet property="passwordTextField" destination="aI9-d5-qSu" id="b50-9O-Hj5"/>
+                        <outlet property="signUpButton" destination="A63-XZ-fKv" id="nA0-br-oCt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TAH-wa-3Lu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -167,7 +168,7 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemPinkColor">
-            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
