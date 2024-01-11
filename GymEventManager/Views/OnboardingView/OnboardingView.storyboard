@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="sf-ui-display-bold.otf">
+            <string>SFUIDisplay-Bold</string>
+        </array>
+        <array key="sf-ui-display-medium.otf">
+            <string>SFUIDisplay-Medium</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Onboarding View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController storyboardIdentifier="onboardingView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="OnboardingViewController" customModule="GymEventManager" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleAspectFill" axis="vertical" spacing="50" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uwK-MO-X9i">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onboarding-image-1" translatesAutoresizingMaskIntoConstraints="NO" id="f9a-t5-Hp9">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="502"/>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launchScreenIcon" translatesAutoresizingMaskIntoConstraints="NO" id="5GW-NP-Jjx">
+                                        <rect key="frame" x="0.0" y="552" width="414" height="23"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="23" id="FQp-ZN-JgL"/>
+                                        </constraints>
+                                    </imageView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="bwB-L9-2Yj" userLabel="Labels Stack View">
+                                        <rect key="frame" x="0.0" y="608" width="414" height="74"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Register for events and add teams." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rpH-1h-18b">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="25"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="25" id="j0N-kp-Dgg"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="SFUIDisplay-Bold" family="SF UI Display" pointSize="18"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem Ipsum is simply dummy text of the printing and typesetting industry." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xtL-s5-AcU">
+                                                <rect key="frame" x="0.0" y="34" width="414" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="YLu-MV-wCf"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="SFUIDisplay-Medium" family="SF UI Display" pointSize="14"/>
+                                                <color key="textColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.55686274509803924" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="highlightedColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.55686274509803924" alpha="1" colorSpace="calibratedRGB"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="tyy-lY-Hxd">
+                                        <rect key="frame" x="0.0" y="728.5" width="414" height="6"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="6" id="b5R-ZC-2MP"/>
+                                        </constraints>
+                                        <color key="pageIndicatorTintColor" red="0.5568627451" green="0.5568627451" blue="0.5568627451" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="currentPageIndicatorTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <action selector="pageControlChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="7T4-cn-uKt"/>
+                                        </connections>
+                                    </pageControl>
+                                    <stackView opaque="NO" contentMode="scaleAspectFill" axis="vertical" alignment="center" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="fmy-Tl-hvy" userLabel="Buttons Stack View">
+                                        <rect key="frame" x="0.0" y="763" width="414" height="99"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nff-q5-70u">
+                                                <rect key="frame" x="68" y="0.0" width="278" height="44"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="278" id="Q9c-Q9-ljl"/>
+                                                    <constraint firstAttribute="height" constant="44" id="bpH-0T-kTu"/>
+                                                </constraints>
+                                                <color key="tintColor" red="0.23921568627450979" green="0.72156862745098038" blue="0.396078431372549" alpha="1" colorSpace="calibratedRGB"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="filled" title="Get Started" titleAlignment="automatic">
+                                                    <fontDescription key="titleFontDescription" name="SFUIDisplay-Semibold" family="SF UI Display" pointSize="15"/>
+                                                    <color key="baseBackgroundColor" red="0.23921568630000001" green="0.72156862749999995" blue="0.39607843139999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="getStartedPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="e0t-6C-JUS"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l47-L5-Dd7">
+                                                <rect key="frame" x="68" y="55" width="278" height="44"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="278" id="6BT-OR-Rs2"/>
+                                                    <constraint firstAttribute="height" constant="44" id="CsT-na-uOQ"/>
+                                                </constraints>
+                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="Skip">
+                                                    <fontDescription key="titleFontDescription" name="SFUIDisplay-Light" family="SF UI Display" pointSize="15"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="skipButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="STG-4R-Ivh"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="fmy-Tl-hvy" firstAttribute="centerX" secondItem="uwK-MO-X9i" secondAttribute="centerX" id="wUl-yY-k1e"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="uwK-MO-X9i" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="Haa-6A-N8F"/>
+                            <constraint firstItem="uwK-MO-X9i" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="b5t-37-ur9"/>
+                            <constraint firstItem="uwK-MO-X9i" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="bht-tA-JyR"/>
+                            <constraint firstItem="uwK-MO-X9i" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="qRH-81-F6g"/>
+                            <constraint firstAttribute="trailing" secondItem="uwK-MO-X9i" secondAttribute="trailing" id="tLL-0x-25R"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="k8p-j0-HX7"/>
+                    <connections>
+                        <outlet property="getStartedButton" destination="nff-q5-70u" id="0Qy-ae-ofZ"/>
+                        <outlet property="mainImageView" destination="f9a-t5-Hp9" id="fAI-wf-mzE"/>
+                        <outlet property="pillPageControl" destination="tyy-lY-Hxd" id="6GO-eY-uNY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-227" y="-261"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="launchScreenIcon" width="250" height="38"/>
+        <image name="onboarding-image-1" width="375" height="406"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

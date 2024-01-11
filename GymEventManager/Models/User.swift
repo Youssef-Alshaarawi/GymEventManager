@@ -6,6 +6,7 @@
 //
 
 import Foundation
+
 struct User: Codable {
     static var shared = User(name: nil, email: "", password: "")
     var name: String?
